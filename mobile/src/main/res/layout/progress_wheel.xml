@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/transparent"
+    android:layout_height="match_parent">
+
+    <com.example.infiny.mylocationtracker.Utils.ProgressWheel
+        android:id="@+id/progressLogin"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        ProgressWheel:text="Loading.."
+        ProgressWheel:textColor="#fff"
+        ProgressWheel:textSize="14sp"
+        ProgressWheel:rimColor="@color/timer_color"
+        ProgressWheel:barLength="60dp"
+        ProgressWheel:barColor="@color/white"
+        ProgressWheel:barWidth="5dp"
+        ProgressWheel:rimWidth="5dp"
+        />
+</RelativeLayout>

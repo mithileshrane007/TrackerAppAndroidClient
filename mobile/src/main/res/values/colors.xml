@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="red">#FF0000</color>
+    <color name="black">#000000</color>
+
+    <color name="green">#008000</color>
+    <color name="holo_orange_faint">#ffffbb33</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="mid_gray">#605F64</color>
+    <color name="gray_text">#7F8285</color>
+    <color name="rim_color_gray">#B0B0B0</color>
+    <color name="center_text">#D31145</color>
+    <color name="round_progress_blue">#2173B9</color>
+    <color name="timer_color">#3BD7B8</color>
+    <color name="backGroundcolor"> #36465F</color>
+
+    <color name="transparent">#00000000</color>
+
+
+</resources>

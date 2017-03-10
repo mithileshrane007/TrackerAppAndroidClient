@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="enter_quote">Enter Quote</string>
+    <string name="no_internet_connection">No internet connection.</string>
+    <string name="no_gps">No GPS enabled</string>
+    <string name="some_went_wrong_only">Something went wrong.</string>
+</resources>

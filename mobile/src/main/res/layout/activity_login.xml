@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:background="@color/backGroundcolor"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.example.infiny.mylocationtracker.Utils.ProgressWheel
+                android:id="@+id/progressLogin"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                ProgressWheel:text="Loading.."
+                ProgressWheel:textColor="#fff"
+                ProgressWheel:textSize="14sp"
+                ProgressWheel:rimColor="@color/timer_color"
+                ProgressWheel:barLength="60dp"
+                ProgressWheel:barColor="@color/white"
+                ProgressWheel:barWidth="5dp"
+                ProgressWheel:rimWidth="5dp"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_alignParentTop="true"
+                android:id="@+id/logo"
+                android:layout_marginTop="80dp"
+                android:layout_height="wrap_content">
+                <ImageView android:src="@drawable/logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    />
+
+            </RelativeLayout>
+            <!-- Email Label -->
+            <LinearLayout
+                android:padding="@dimen/activity_horizontal_margin"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+
+                android:layout_height="wrap_content">
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/input_email"-->
+
+                    <!--android:layout_above="@+id/btn_login"-->
+                    <!--android:theme="@style/EditTextHint"-->
+                    <!--android:layout_marginBottom="24dp">-->
+                    <EditText
+                        android:padding="15dp"
+                        android:inputType="textCapWords|textPersonName"
+                        android:maxLines="1"
+                        android:id="@+id/input_email"
+                        android:gravity="center"
+                        android:textCursorDrawable="@null"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:theme="@style/EditTextHint"
+                        android:layout_marginBottom="17dp"
+                        android:textSize="@dimen/activity_horizontal_margin"
+                        android:layout_width="match_parent"
+                        android:textColor="@android:color/white"
+                        android:layout_height="wrap_content"
+                        android:hint="User ID" />
+                <!--</android.support.design.widget.TextInputLayout>-->
+
+
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_login"
+                    android:background="@android:color/holo_red_light"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginBottom="80dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_height="40dp"
+                    android:textColor="@android:color/white"
+                    android:text="Proceed"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

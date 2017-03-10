@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">MyLocationTracker</string>
+    <string name="action_settings">Settings</string>
+    <string name="enter_quote">Enter Quote</string>
+
+<string name="add_new">Add New</string>
+    <string name="start_text">Start Alarm</string>
+    <string name="cancel_text">Cancel Alarm</string>
+    <string name="doodle_alert">Doodle Alert</string>
+    <string name="doodle_found">There is a Google doodle today!!</string>
+    <string name="no_doodle">No Google doodle today.</string>
+    <string name="connection_error">Connection error.</string>
+     <string name="intro_message">Welcome to <b>Scheduler</b>!
+        This sample demonstrates how you can schedule an alarm that causes a service to
+        be started. This is useful when you want to schedule alarms that initiate
+        long-running operations. Click START ALARM to activate an alarm to check
+        the Google home page for a custom doodle once a day. If the app finds a doodle,
+        it posts a \"Doodle Alert\" as a notification. Click CANCEL ALARM to cancel the
+        alarm. Once the alarm is active, it automatically restarts when the device is
+        rebooted.</string>
+    <string name="title_activity_new_location">NewLocation</string>
+    <string name="no_internet_connection">No internet connection.</string>
+    <string name="no_gps">No GPS enabled</string>
+    <string name="some_went_wrong_only">Something went wrong.</string>
+    <string name="login_error_msg">Sorry  could not login.</string>
+</resources>
