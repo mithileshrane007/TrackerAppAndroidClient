@@ -1,34 +1,63 @@
 package com.example.infiny.mylocationtracker.Activities;
 
+import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.example.infiny.mylocationtracker.ConfigApp.Config;
+import com.example.infiny.mylocationtracker.Helpers.GPSTracker;
 import com.example.infiny.mylocationtracker.Helpers.SessionManager;
 import com.example.infiny.mylocationtracker.IDataFetch;
 import com.example.infiny.mylocationtracker.Listeners.StopServiceListener;
+import com.example.infiny.mylocationtracker.Models.LogCheck;
+import com.example.infiny.mylocationtracker.NetworkUtils.VolleyUtils;
 import com.example.infiny.mylocationtracker.R;
 import com.example.infiny.mylocationtracker.Utils.ProgressWheel;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
@@ -65,6 +94,7 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
     ImageView iv_start_stop,iv_checkout;
     CircleImageView iv_profilePic;
 
+
     boolean running;
     int progress=0;
     Bundle bundle;
@@ -72,6 +102,12 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
     private AlarmManager alarmMgr;
     private PendingIntent pendingI;
     private StopServiceListener stopServiceListener;
+    TextInputLayout edt_despcrition;
+    VolleyUtils volleyUtils;
+    Button btnSubmit;
+    MapView mapView;
+    private GoogleMap mMap;
+    private ScrollView hsv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +120,7 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
         getSupportActionBar().setTitle("Location Tracker");
         getSupportActionBar().hide();
         mContext=this;
+        volleyUtils=new VolleyUtils();
         sessionManager=new SessionManager(mContext);
         Log.d("val1","in onCreate");
         if (getIntent()!=null)
@@ -145,29 +182,29 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
         }
 
 
-        Calendar time = Calendar.getInstance();
-        String time_out=sessionManager.getTrackTimeOut();
-        ;
-        if (time_out.contains("."))
-        {
-            String [] time_out_arr=time_out.split("\\.");
-            time.set(Calendar.HOUR_OF_DAY, Integer.valueOf(time_out_arr[0]));
-            time.set(Calendar.MINUTE, Integer.valueOf(time_out_arr[1]));
-
-        }else {
-            time.set(Calendar.HOUR_OF_DAY, Integer.valueOf(time_out));
-
-        }
-//        time.set(Calendar.HOUR_OF_DAY, 17);
-//        time.set(Calendar.MINUTE, 30);
+//        Calendar time = Calendar.getInstance();
+//        String time_out=sessionManager.getTrackTimeOut();
+//        ;
+//        if (time_out.contains("."))
+//        {
+//            String [] time_out_arr=time_out.split("\\.");
+//            time.set(Calendar.HOUR_OF_DAY, Integer.valueOf(time_out_arr[0]));
+//            time.set(Calendar.MINUTE, Integer.valueOf(time_out_arr[1]));
+//
+//        }else {
+//            time.set(Calendar.HOUR_OF_DAY, Integer.valueOf(time_out));
+//
+//        }
+////        time.set(Calendar.HOUR_OF_DAY, 17);
+////        time.set(Calendar.MINUTE, 30);
         stopServiceListener  =new StopServiceListener();
         registerReceiver(stopServiceListener,new IntentFilter("CANCEL_SENDING"));
-
-        Intent intentCancel=new Intent();
-        intentCancel.setAction("CANCEL_SENDING");
-        pendingI = PendingIntent.getBroadcast(getApplicationContext(),1, intentCancel, 0);
-        alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        alarmMgr.setRepeating(AlarmManager.RTC, time.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingI);
+//
+//        Intent intentCancel=new Intent();
+//        intentCancel.setAction("CANCEL_SENDING");
+//        pendingI = PendingIntent.getBroadcast(getApplicationContext(),1, intentCancel, 0);
+//        alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+//        alarmMgr.setRepeating(AlarmManager.RTC, time.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingI);
 
     }
 
@@ -247,6 +284,61 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
 
                         //timer will start
                         startTimer();
+
+
+
+                        volleyUtils.setOnlineStatus(true, sessionManager.getAuthToken(), new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        });
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                        Date date = new Date();
+                        SimpleDateFormat sdf1=new SimpleDateFormat("HH:mm:ss");
+                        sdf1.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+                        String time=sdf.format(date);
+                        String min=sdf1.format(date);
+
+
+                        volleyUtils.setLoggedHours(sessionManager.getId(), sdf.format(date), sdf1.format(date), true, false, sessionManager.getAuthToken(), new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonObject=new JSONObject(response);
+
+                                    LogCheck logCheck=new LogCheck();
+                                    logCheck.setPrev_t(jsonObject.getString("prev_time"));
+                                    logCheck.setLog_hor(jsonObject.getString("loggedhour"));
+                                    logCheck.save();
+                                    if (Double.parseDouble(jsonObject.getString("loggedhour"))>=Double.parseDouble(sessionManager.getTrackTimeOut())) {
+                                        Intent intentCancel=new Intent();
+                                        Calendar cur_cal = Calendar.getInstance();
+                                        cur_cal.setTimeInMillis(System.currentTimeMillis());
+                                        cur_cal.add(Calendar.SECOND, 10);
+                                        intentCancel.setAction("CANCEL_SENDING");
+                                        pendingI = PendingIntent.getBroadcast(getApplicationContext(),1, intentCancel, 0);
+                                        alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                                        alarmMgr.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingI);
+
+                                    }
+
+                                }catch (Exception e) {
+
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        });
                         iv_start_stop.setImageResource(R.drawable.ic_stop_white_48dp);
                         tv_start_stop.setText("Stop");
                         progressBarMinutes.spin();
@@ -277,10 +369,14 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                         sessionManager.setClicked(false);
                         stoptimertask(iv_start_stop);
                         //timer will stop
+
                         long millis=Calendar.getInstance().getTime().getTime()-sessionManager.getTimerStartTime();
                         Log.d("val","in time ed::"+millis+"\n fdffd:"+String.format("%s h, %s m",
                                 String.valueOf(TimeUnit.MILLISECONDS.toHours(millis)),
                                 String.valueOf(TimeUnit.MILLISECONDS.toMinutes(millis))));
+
+
+
 
                         long updated = timeSwapBuff + millis;
                         int minutes = (int) ((updated / (1000*60)) % 60);
@@ -296,6 +392,96 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                         tv_start_stop.setText("Start");
                         progressBarMinutes.stopSpinning();
                         sessionManager.clearTimer();
+
+                        volleyUtils.setOnlineStatus(false, sessionManager.getAuthToken(), new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+
+
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        });
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                        Date date = new Date();
+                        SimpleDateFormat sdf1=new SimpleDateFormat("HH:mm:ss");
+                        sdf1.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+                        String time=sdf.format(date);
+                        String min=sdf1.format(date);
+
+
+                        volleyUtils.setLoggedHours(sessionManager.getId(), sdf.format(date), sdf1.format(date), false, true, sessionManager.getAuthToken(), new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+
+
+                                try {
+                                    JSONObject jsonObject=new JSONObject(response);
+                                    if (Integer.parseInt(jsonObject.getString("loggedhour"))>=Integer.parseInt(sessionManager.getTrackTimeOut())) {
+                                        Intent intentCancel=new Intent();
+                                        Calendar cur_cal = Calendar.getInstance();
+                                        cur_cal.setTimeInMillis(System.currentTimeMillis());
+                                        cur_cal.add(Calendar.SECOND, 10);
+                                        intentCancel.setAction("CANCEL_SENDING");
+                                        pendingI = PendingIntent.getBroadcast(getApplicationContext(),1, intentCancel, 0);
+                                        alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                                        alarmMgr.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingI);
+
+                                    }
+
+                                }catch (Exception e) {
+
+                                }
+
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        });
+
+
+
+
+                        final AlertDialog.Builder alertDialogBuilder=new AlertDialog.Builder(this);
+                        alertDialogBuilder.setPositiveButton("I'M SURE", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+//                                final ProgressDialog progressDialog=new ProgressDialog(mContext);
+//                                progressDialog.setTitle("Logging out");
+//                                progressDialog.setMessage("Please wait...");
+//                                progressDialog.show();
+//
+//                                new Handler().postDelayed(new Runnable() {
+//                                    @Override
+//                                    public void run() {
+//
+//                                        progressDialog.dismiss();
+//                                        sessionManager.clear();
+//                                        startActivity(new Intent(NewLocation.this,LoginForm.class));
+//                                        finish();
+//
+//                                    }
+//                                },3000);
+                            }
+                        });
+                        alertDialogBuilder.setNegativeButton("NOT SURE", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        });
+                        final AlertDialog alertDialog = alertDialogBuilder.create();
+                        alertDialog.setTitle("Log out?");
+                        alertDialog.show();
+
+
+
 //                    alarm.cancel(pintent);
 //                    pintent.cancel();
                     } catch (Exception e) {
@@ -305,14 +491,150 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                 }
                 break;
 
+
+            case R.id.iv_checkout:
+                try {
+                    final GPSTracker gpsTracker=new GPSTracker(mContext);
+//                Intent intent=new Intent(NewLocation.this,CheckOutActivity.class);
+                    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+                    LayoutInflater inflater = getLayoutInflater();
+                    View dialogView = inflater.inflate(R.layout.check_out_dialog, null);
+
+                    dialogBuilder.setView(dialogView);
+                    edt_despcrition= (TextInputLayout) dialogView.findViewById(R.id.edt_despcrition);
+                    btnSubmit= (Button) dialogView.findViewById(R.id.btnSubmit);
+                    mapView= (MapView) dialogView.findViewById(R.id.mapView);
+                    hsv= (ScrollView) dialogView.findViewById(R.id.hsv);
+
+
+                    MapsInitializer.initialize(mContext);
+                    final AlertDialog alertDialog = dialogBuilder.create();
+                    alertDialog.setTitle("Checkout");
+
+                    mapView.onCreate(alertDialog.onSaveInstanceState());
+                    mapView.onResume();// needed to get the map to display immediately
+
+                    mapView.getMapAsync(new OnMapReadyCallback() {
+                        @Override
+                        public void onMapReady(GoogleMap googleMap) {
+                            mMap= googleMap ;
+                            if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                                // TODO: Consider calling
+                                //    ActivityCompat#requestPermissions
+                                // here to request the missing permissions, and then overriding
+                                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                //                                          int[] grantResults)
+                                // to handle the case where the user grants the permission. See the documentation
+                                // for ActivityCompat#requestPermissions for more details.
+
+                                return;
+                            }
+
+                            mMap.getUiSettings().setScrollGesturesEnabled(false);
+
+                            mMap.setMyLocationEnabled(true);
+                            mMap.getUiSettings().setMyLocationButtonEnabled(false);
+                            mMap.getUiSettings().setMapToolbarEnabled(false);
+                            LatLng latLng=new LatLng(gpsTracker.getLatitude(),gpsTracker.getLongitude());
+                            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
+                            mMap.animateCamera(cameraUpdate);
+
+                        }
+                    });
+                    alertDialog.show();
+
+
+                    edt_despcrition.getEditText().setOnTouchListener(new View.OnTouchListener() {
+                        public boolean onTouch(View view, MotionEvent event) {
+                            // TODO Auto-generated method stub
+                            if (view.getId() == R.id.edt_despcrition_text) {
+                                view.getParent().requestDisallowInterceptTouchEvent(true);
+                                switch (event.getAction()&MotionEvent.ACTION_MASK){
+                                    case MotionEvent.ACTION_UP:
+                                        view.getParent().requestDisallowInterceptTouchEvent(false);
+                                        break;
+                                }
+                            }
+                            return false;
+                        }
+                    });
+
+                    btnSubmit.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            if (validateData()) {
+                                if (gpsTracker.canGetLocation()) {
+
+                                    final ProgressDialog progressDialog=new ProgressDialog(mContext);
+                                    progressDialog.setCancelable(false);
+                                    progressDialog.setMessage("Loading...");
+                                    progressDialog.show();
+                                    volleyUtils.checkOut(sessionManager.getId(),String.valueOf( gpsTracker.getLatitude()), String.valueOf(gpsTracker.getLongitude()), edt_despcrition.getEditText().getText().toString(), sessionManager.getAuthToken(),Calendar.getInstance().getTime().toString(), new Response.Listener<String>() {
+                                        @Override
+                                        public void onResponse(String response) {
+                                            try {
+                                                JSONObject jsonObject=new JSONObject(response);
+                                                if (!jsonObject.getBoolean("error")){
+                                                    progressDialog.dismiss();
+                                                    alertDialog.dismiss();
+                                                    Toast.makeText(mContext,"Checkout successfully",Toast.LENGTH_SHORT).show();
+                                                }
+                                                else
+                                                    Toast.makeText(mContext,R.string.try_again_later,Toast.LENGTH_SHORT).show();
+
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+
+
+                                        }
+                                    }, new Response.ErrorListener() {
+                                        @Override
+                                        public void onErrorResponse(VolleyError error) {
+                                            Toast.makeText(mContext,R.string.try_again_later,Toast.LENGTH_SHORT).show();
+                                            progressDialog.dismiss();
+                                        }
+                                    });
+                                }else {
+
+                                    Toast.makeText(mContext,R.string.try_again_later,Toast.LENGTH_SHORT).show();
+                                    //                            LatLng latLng=sessionManager.getLocation();
+                                    //                            volleyUtils.checkOut(sessionManager.getId(), String.valueOf(latLng.latitude),String.valueOf(latLng.longitude), edt_despcrition.getEditText().getText().toString(), sessionManager.getAuthToken(), new Response.Listener<String>() {
+                                    //                                @Override
+                                    //                                public void onResponse(String response) {
+                                    //                                    alertDialog.dismiss();
+                                    //                                }
+                                    //                            }, new Response.ErrorListener() {
+                                    //                                @Override
+                                    //                                public void onErrorResponse(VolleyError error) {
+                                    //
+                                    //                                }
+                                    //                            });
+                                }
+                            } else {
+                                edt_despcrition.setError("Invalid description");
+                                edt_despcrition.setFocusable(true);
+                            }
+                        }
+
+
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+
         }
 
     }
 
 
+
+
     @Override
     protected void onDestroy() {
-       super.onDestroy();
+        super.onDestroy();
         unregisterReceiver(stopServiceListener);
     }
 
@@ -357,11 +679,20 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                         milliseconds = (int) (updatedtime % 1000);
                         Log.d("timer2","hr "+hours+" min "+minutes+" sec "+seconds +"\ntimeInMilliseconds::"+timeInMilliseconds);
 
+                        if (sessionManager.getClicked()){
                         progressBarMinutes.setProgress(seconds*6);
                         progressBarHour.setProgress(hours*15);
 
                         progressBarHour.setText(hours +"h");
                         progressBarMinutes.setText(minutes +"m");
+                        }else {
+
+                            if (progressBarMinutes.isSpinning())
+                            progressBarMinutes.stopSpinning();
+                            if (progressBarHour.isSpinning())
+                                progressBarHour.stopSpinning();
+
+                        }
 
                     }
                 });
@@ -388,8 +719,22 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
             timer.cancel();
             timer = null;
         }
+
+        if (progressBarMinutes.isSpinning())
+            progressBarMinutes.stopSpinning();
+        if (progressBarHour.isSpinning())
+            progressBarHour.stopSpinning();
     }
 
+
+    private boolean validateData() {
+        if (!TextUtils.isEmpty(edt_despcrition.getEditText().getText().toString()))
+        {
+            return true;
+        }
+
+        return false;
+    }
 
 
 }

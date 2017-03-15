@@ -128,7 +128,7 @@ public class GPSTracker  implements LocationListener {
         }
         if (location!=null)
         {
-            Toast.makeText(mContext,"Lat:"+latitude+"\nLong::"+longitude,Toast.LENGTH_SHORT).show();
+//            Toast.makeText(mContext,"Lat:"+latitude+"\nLong::"+longitude,Toast.LENGTH_SHORT).show();
         }
         return location;
     }

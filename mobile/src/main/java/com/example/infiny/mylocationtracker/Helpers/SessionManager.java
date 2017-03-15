@@ -42,6 +42,7 @@ public class SessionManager {
     private String USER_EMAIL = "user_email";
     private String IMAGE = "image";
     private String TRACK_TIME_OUT="tracktimeout";
+    private String TRACK_TIME_IN="tracktimein";
     private String TRACK_TIME_INTERVAL = "tracktimeinterval";
 
 
@@ -140,6 +141,12 @@ public class SessionManager {
 
     public void setTrackTimeOut(String track_time_out) {
         editor.putString(TRACK_TIME_OUT,track_time_out);
+    }
+    public void setTrackTimeIn(String track_time_in) {
+        editor.putString(TRACK_TIME_IN,track_time_in);
+    }
+    public String getTrackTimeIn() {
+        return pref.getString(TRACK_TIME_IN,"");
     }
 
 

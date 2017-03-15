@@ -30,6 +30,7 @@ import com.google.android.gms.common.GoogleApiAvailability;
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
+import java.util.Vector;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -41,6 +42,8 @@ public class SplashActivity extends AppCompatActivity {
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     VolleyUtils volleyUtils;
     SessionManager sessionManager;
+    private Vector<MaterialDialog> dialogs = new Vector<>();
+
     GPSTracker gpsTracker;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,101 +92,108 @@ public class SplashActivity extends AppCompatActivity {
         super.onResume();
 //        Toast.makeText(mContext,"onResume",Toast.LENGTH_SHORT).show();
 
-        gpsTracker=new GPSTracker(this);
-        if ( (Build.VERSION.SDK_INT>=23)?sysPermissionsMarshmallowUtils.checkPermission():true && ConnectivityReceiver.isConnected() && gpsTracker.canGetLocation())
-        {
+        try {
+            gpsTracker=new GPSTracker(this);
+            if (gpsTracker==null) {
+                gpsTracker = new GPSTracker(mContext);
+            }
+            if ( (Build.VERSION.SDK_INT>=23)?sysPermissionsMarshmallowUtils.checkPermission():true && ConnectivityReceiver.isConnected() && gpsTracker.canGetLocation())
+            {
 
-        }
-        else {
+            }
+            else {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (Build.VERSION.SDK_INT>=23)
+                            if (!sysPermissionsMarshmallowUtils.checkPermission() )
+                                sysPermissionsMarshmallowUtils.requestPermission();
+                        if (!ConnectivityReceiver.isConnected() )
+                            showDialog();
+                        if (!gpsTracker.canGetLocation())
+                            gpsTracker.showSettingsAlertMaterial();
+                    }
+                },3000);
+
+
+            }
+
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if (Build.VERSION.SDK_INT>=23)
-                        if (!sysPermissionsMarshmallowUtils.checkPermission() )
-                            sysPermissionsMarshmallowUtils.requestPermission();
-                    if (!ConnectivityReceiver.isConnected() )
-                        showDialog();
-                    if (!gpsTracker.canGetLocation())
-                        gpsTracker.showSettingsAlertMaterial();
-                }
-            },3000);
 
+    //                if (sysPermissionsMarshmallowUtils.checkPermission() && ConnectivityReceiver.isConnected() && gpsTracker.canGetLocation())
+    //                {
+    //                    startActivity(new Intent(SplashActivity.this,NewLocation.class));
+    //                    finish();
+    //                }
 
-        }
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-//                if (sysPermissionsMarshmallowUtils.checkPermission() && ConnectivityReceiver.isConnected() && gpsTracker.canGetLocation())
-//                {
-//                    startActivity(new Intent(SplashActivity.this,NewLocation.class));
-//                    finish();
-//                }
-
-                if (Build.VERSION.SDK_INT>=23){
-                    if (sysPermissionsMarshmallowUtils.checkPermission() && ConnectivityReceiver.isConnected() && gpsTracker.canGetLocation())
-                    {
-
-                        if (LogSend.count(LogSend.class)>0)
+                    if (Build.VERSION.SDK_INT>=23){
+                        if (sysPermissionsMarshmallowUtils.checkPermission() && ConnectivityReceiver.isConnected() && gpsTracker.canGetLocation())
                         {
-                            List<LogSend> logSendTable = LogSend.listAll(LogSend.class);
-//                            volleyUtils.sendLocationDetailArray2(sessionManager.getId(),sessionManager.getAuthToken(),logSendTable, new Response.Listener<JSONObject>() {
-//                                @Override
-//                                public void onResponse(JSONObject response) {
-//                                    Toast.makeText(mContext,"Log send splashact respo",Toast.LENGTH_SHORT).show();
-//
-//                                }
-//                            }, new Response.ErrorListener() {
-//                                @Override
-//                                public void onErrorResponse(VolleyError error) {
-//                                    Toast.makeText(mContext,"Log send splashact errr",Toast.LENGTH_SHORT).show();
-//
-//                                }
-//                            });
 
-                            volleyUtils.sendLocationDetailArray3(sessionManager.getId(),sessionManager.getAuthToken(), logSendTable, new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    Toast.makeText(getApplicationContext(),"Log send mylocserv respo",Toast.LENGTH_SHORT).show();
+                            if (LogSend.count(LogSend.class)>0)
+                            {
+                                List<LogSend> logSendTable = LogSend.listAll(LogSend.class);
+    //                            volleyUtils.sendLocationDetailArray2(sessionManager.getId(),sessionManager.getAuthToken(),logSendTable, new Response.Listener<JSONObject>() {
+    //                                @Override
+    //                                public void onResponse(JSONObject response) {
+    //                                    Toast.makeText(mContext,"Log send splashact respo",Toast.LENGTH_SHORT).show();
+    //
+    //                                }
+    //                            }, new Response.ErrorListener() {
+    //                                @Override
+    //                                public void onErrorResponse(VolleyError error) {
+    //                                    Toast.makeText(mContext,"Log send splashact errr",Toast.LENGTH_SHORT).show();
+    //
+    //                                }
+    //                            });
+
+                                volleyUtils.sendLocationDetailArray3(sessionManager.getId(),sessionManager.getAuthToken(), logSendTable, new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        Toast.makeText(getApplicationContext(),"Log send mylocserv respo",Toast.LENGTH_SHORT).show();
 
 
 
-                                }
-                            }, new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    Toast.makeText(getApplicationContext(),"Log send mylocserv error",Toast.LENGTH_SHORT).show();
+                                    }
+                                }, new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        Toast.makeText(getApplicationContext(),"Log send mylocserv error",Toast.LENGTH_SHORT).show();
 
-                                }
-                            });
+                                    }
+                                });
 
+                            }
+
+                            if (sessionManager.isLogin())
+                                startActivity(new Intent(SplashActivity.this,NewLocation.class));
+                            else
+                                startActivity(new Intent(SplashActivity.this,LoginForm.class));
+                            sessionManager.setLocation(gpsTracker.getLatitude(),gpsTracker.getLongitude());
+                            finish();
+                        }
+                    }
+                    else
+                    {
+                        if (ConnectivityReceiver.isConnected() && gpsTracker.canGetLocation())
+                        {
+                            if (sessionManager.isLogin())
+                                startActivity(new Intent(SplashActivity.this,NewLocation.class));
+                            else
+                                startActivity(new Intent(SplashActivity.this,LoginForm.class));
+                            sessionManager.setLocation(gpsTracker.getLatitude(),gpsTracker.getLongitude());
+
+                            finish();
                         }
 
-                        if (sessionManager.isLogin())
-                            startActivity(new Intent(SplashActivity.this,NewLocation.class));
-                        else
-                            startActivity(new Intent(SplashActivity.this,LoginForm.class));
-                        sessionManager.setLocation(gpsTracker.getLatitude(),gpsTracker.getLongitude());
-                        finish();
                     }
                 }
-                else
-                {
-                    if (ConnectivityReceiver.isConnected() && gpsTracker.canGetLocation())
-                    {
-                        if (sessionManager.isLogin())
-                            startActivity(new Intent(SplashActivity.this,NewLocation.class));
-                        else
-                            startActivity(new Intent(SplashActivity.this,LoginForm.class));
-                        sessionManager.setLocation(gpsTracker.getLatitude(),gpsTracker.getLongitude());
-
-                        finish();
-                    }
-
-                }
-            }
-        },5000);
+            },5000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -221,39 +231,45 @@ public class SplashActivity extends AppCompatActivity {
 
 
     public void showDialog() {
-        MaterialDialog materialDialog=  new MaterialDialog.Builder(mContext)
-                .title(R.string.no_internet_connection)
-                .positiveText("Settings")
-                .negativeColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark))
-                .positiveColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark))
+        try {
+            MaterialDialog materialDialog=  new MaterialDialog.Builder(mContext)
+                    .title(R.string.no_internet_connection)
+                    .positiveText("Settings")
+                    .negativeColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark))
+                    .positiveColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark))
 
-                .negativeText("Exit")
-                .onPositive(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        dialog.dismiss();
-//                        Toast.makeText(mContext,"sett",Toast.LENGTH_SHORT).show();
-                        startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
+                    .negativeText("Exit")
+                    .onPositive(new MaterialDialog.SingleButtonCallback() {
+                        @Override
+                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                            dialog.dismiss();
+    //                        Toast.makeText(mContext,"sett",Toast.LENGTH_SHORT).show();
+                            startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
 
-                    }
-                }).onNegative(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        dialog.dismiss();
+                        }
+                    }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                        @Override
+                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                            dialog.dismiss();
+                            closeDialogs();
+                            finishAffinity();
 
-                        finishAffinity();
 
+                        }
+                    }).show();
 
-                    }
-                }).show();
-        materialDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialogInterface) {
-//                Toast.makeText(mContext,"setOnDismissListener",Toast.LENGTH_SHORT).show();
-                dialogInterface.dismiss();
-            }
-        });
-        materialDialog.setCancelable(false);
+            dialogs.add(materialDialog);
+            materialDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialogInterface) {
+    //                Toast.makeText(mContext,"setOnDismissListener",Toast.LENGTH_SHORT).show();
+                    dialogInterface.dismiss();
+                }
+            });
+            materialDialog.setCancelable(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -261,8 +277,11 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        if (gpsTracker==null) {
+            gpsTracker = new GPSTracker(mContext);
+        }
         switch (requestCode) {
+
             case 0:
                 if (Build.VERSION.SDK_INT>=23) {
                     if (sysPermissionsMarshmallowUtils.checkPermission() && ConnectivityReceiver.isConnected() && gpsTracker.canGetLocation()) {
@@ -277,12 +296,13 @@ public class SplashActivity extends AppCompatActivity {
                             gpsTracker.showSettingsAlertMaterial();
                     }
                 } else {
+
                     if ( ConnectivityReceiver.isConnected() && gpsTracker.canGetLocation()) {
                         onResume();
                     }
                     else {
 
-                        if (!ConnectivityReceiver.isConnected() )
+                        if (!ConnectivityReceiver.isConnected())
                             showDialog();
                         if (!gpsTracker.canGetLocation())
                             gpsTracker.showSettingsAlertMaterial();
@@ -294,6 +314,9 @@ public class SplashActivity extends AppCompatActivity {
     }
 
 
-
+    public void closeDialogs() {
+        for (MaterialDialog dialog : dialogs)
+            if (dialog.isShowing()) dialog.dismiss();
+    }
 
 }

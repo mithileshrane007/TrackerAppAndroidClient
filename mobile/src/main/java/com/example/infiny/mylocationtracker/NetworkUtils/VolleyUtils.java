@@ -158,14 +158,6 @@ public class VolleyUtils {
         AppActivity.getInstance().addToRequestQueue(request);
     }
 
-
-
-
-
-
-
-
-
     public void sendLocationDetailArray(final String id, final List<LogSend> logSendTable, final NetworkResponse callback, final Response.ErrorListener errorCall){
 
         String url= Config.BASE_URL + "api_store_location";
@@ -352,7 +344,7 @@ public class VolleyUtils {
 
                     params.put("latitude["+i+"]",logSendTable.get(i).getLatitude());
                     params.put("longitude["+i+"]",logSendTable.get(i).getLongitude());
-                    params.put("time_zone["+i+"]",logSendTable.get(i).getTimezone_str());
+                    params.put("time_zone["+i+"]",logSendTable.get(i).getTimezone_id());
                     params.put("created_at["+i+"]",logSendTable.get(i).getCreated_at());
                 }
 
@@ -485,5 +477,152 @@ public class VolleyUtils {
     }
 
 
+    public void checkOut(final String id, final String latitude, final String longitude, final String desp, final String authToken, final String time, final Response.Listener<String> callback, final Response.ErrorListener errorCall) {
+        String url= Config.BASE_URL + Config.CHECKOUT;
+
+        StringRequest request=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                callback.onResponse(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                errorCall.onErrorResponse(error);
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("target_id", id);
+                params.put("latitude", latitude);
+                params.put("longitude", longitude);
+                params.put("description", desp);
+                params.put("created_at",time);
+                return params;
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded; charset=UTF-8";
+            }
+
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> mHeaders = new android.support.v4.util.ArrayMap<String, String>();
+                mHeaders.put("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+                mHeaders.put("Accept", "application/json");
+                mHeaders.put("token",authToken);
+
+                return mHeaders;
+            }
+
+        };
+
+        AppActivity.getInstance().addToRequestQueue(request);
+    }
+
+    public void setOnlineStatus(final boolean isOnline, final String authToken, final Response.Listener<String> callback, final Response.ErrorListener errorCall) {
+        String url= Config.BASE_URL + Config.ISONLINESTATUS;
+
+        StringRequest request=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                callback.onResponse(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                errorCall.onErrorResponse(error);
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("is_online",String.valueOf(isOnline));
+                return params;
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded; charset=UTF-8";
+            }
+
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> mHeaders = new android.support.v4.util.ArrayMap<String, String>();
+                mHeaders.put("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+                mHeaders.put("Accept", "application/json");
+                mHeaders.put("token",authToken);
+
+                return mHeaders;
+            }
+
+        };
+
+        AppActivity.getInstance().addToRequestQueue(request);
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public void setLoggedHours(final String target_id,final String date,final String time,final boolean is_start,final boolean is_stop, final String authToken, final Response.Listener<String> callback, final Response.ErrorListener errorCall) {
+        String url= Config.BASE_URL + Config.LOGGED_HOURS;
+
+        StringRequest request=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                callback.onResponse(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                errorCall.onErrorResponse(error);
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("date",date);
+                params.put("time",time);
+                params.put("target_id",target_id);
+                if (is_start)
+                    params.put("is_start",String.valueOf(is_start));
+                if (is_stop)
+                    params.put("is_stop",String.valueOf(is_stop));
+
+
+                return params;
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded; charset=UTF-8";
+            }
+
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> mHeaders = new android.support.v4.util.ArrayMap<String, String>();
+                mHeaders.put("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+                mHeaders.put("Accept", "application/json");
+                mHeaders.put("token",authToken);
+
+                return mHeaders;
+            }
+
+        };
+
+        AppActivity.getInstance().addToRequestQueue(request);
+    }
 
 }
