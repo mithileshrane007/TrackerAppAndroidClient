@@ -22,12 +22,14 @@ public class StopServiceListener extends BroadcastReceiver {
         mContext = context;
         checkAlarm();
         if (intent.getAction().equals("CANCEL_SENDING")) {
-            Toast.makeText(context, "I m here", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "I m here StopServiceListener", Toast.LENGTH_SHORT).show();
             Intent intent1 = new Intent(context, MyIntentLocationService.class);
             PendingIntent pendingIntent = PendingIntent.getService(context, 0, intent1, 0);
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             alarmManager.cancel(pendingIntent);
             pendingIntent.cancel();
+
+
         }
 
     }

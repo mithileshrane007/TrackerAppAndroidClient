@@ -52,6 +52,13 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".Listeners.CheckListener">
+            <intent-filter>
+                <action android:name="CHECK_TRACK" />
+            </intent-filter>
+        </receiver>
+
+
         <activity
             android:name=".Activities.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">

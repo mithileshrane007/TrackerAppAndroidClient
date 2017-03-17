@@ -42,8 +42,8 @@ public class SessionManager {
     private String USER_EMAIL = "user_email";
     private String IMAGE = "image";
     private String TRACK_TIME_OUT="tracktimeout";
-    private String TRACK_TIME_IN="tracktimein";
     private String TRACK_TIME_INTERVAL = "tracktimeinterval";
+    private String LOGGED_HOURS = "loggedhours";
 
 
     // Constructor
@@ -101,7 +101,8 @@ public class SessionManager {
         editor.commit();
     }
     public long  getTimerStartTime() {
-        return pref.getLong(TIMERSTARTTIME,0);
+        long val=pref.getLong(TIMERSTARTTIME,0);
+        return val;
     }
 
     public void setId(String id) {
@@ -110,7 +111,7 @@ public class SessionManager {
     }
 
     public void clearTimer() {
-        editor.putString(TIMERSTARTTIME,"");
+        editor.putLong(TIMERSTARTTIME,0);
         editor.commit();
     }
 
@@ -139,16 +140,18 @@ public class SessionManager {
         editor.putString(TRACK_TIME_INTERVAL,track_time_interval);
     }
 
+    public void setLoggedHours(long loggedHours) {
+        editor.putLong(LOGGED_HOURS,loggedHours);
+    }
+
+    public long getLoggedHours() {
+        return pref.getLong(LOGGED_HOURS,0);
+    }
+
+
     public void setTrackTimeOut(String track_time_out) {
         editor.putString(TRACK_TIME_OUT,track_time_out);
     }
-    public void setTrackTimeIn(String track_time_in) {
-        editor.putString(TRACK_TIME_IN,track_time_in);
-    }
-    public String getTrackTimeIn() {
-        return pref.getString(TRACK_TIME_IN,"");
-    }
-
 
     public String getTrackTimeInterval() {
         return pref.getString(TRACK_TIME_INTERVAL,"");

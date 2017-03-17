@@ -50,11 +50,15 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         volleyUtils=new VolleyUtils();
+
+
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.splash_screen);
 
         mContext=this;
         sessionManager=new SessionManager(this);
+
+
         final TimeZone tz = TimeZone.getDefault();
         Log.d("val","TimeZone   "+tz.getDisplayName(false, TimeZone.SHORT)+" Timezon id :: " +tz.getID()+"  DST :: "+tz.getDSTSavings()+"  timestap ::"+ Calendar.getInstance().getTime().toString());
 

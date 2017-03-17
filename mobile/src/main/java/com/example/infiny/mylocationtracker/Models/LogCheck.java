@@ -7,14 +7,26 @@ import com.orm.SugarRecord;
  */
 
 public class LogCheck extends SugarRecord {
-    private String prev_t,log_hor;
+    private String prev_t;
+    private String log_hor;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    private String date;
 
     public LogCheck() {
     }
 
-    public LogCheck(String prev_t, String log_hor) {
+    public LogCheck(String prev_t, String log_hor, String date) {
         this.prev_t = prev_t;
         this.log_hor = log_hor;
+        this.date = date;
     }
 
     public String getPrev_t() {

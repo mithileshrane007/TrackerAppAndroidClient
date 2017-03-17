@@ -3,16 +3,11 @@ package com.example.infiny.mylocationtracker.Activities;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,7 +17,6 @@ import com.example.infiny.mylocationtracker.Helpers.SessionManager;
 import com.example.infiny.mylocationtracker.Interfaces.NetworkResponse;
 import com.example.infiny.mylocationtracker.NetworkUtils.VolleyUtils;
 import com.example.infiny.mylocationtracker.R;
-import com.example.infiny.mylocationtracker.Utils.ProgressWheel;
 
 import org.json.JSONObject;
 
@@ -35,10 +29,8 @@ public class LoginForm extends AppCompatActivity implements View.OnClickListener
     EditText input_email;
     AppCompatButton btn_login;
     private Context mContext;
-    ProgressWheel progressLogin;
     SessionManager sessionManager;
     private VolleyUtils volleyUtils;
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +39,10 @@ public class LoginForm extends AppCompatActivity implements View.OnClickListener
         sessionManager=new SessionManager(mContext);
         volleyUtils=new VolleyUtils();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow();
-            w.setStatusBarColor(ContextCompat.getColor(mContext, R.color.colorPrimaryDark));
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            Window w = getWindow();
+//            w.setStatusBarColor(ContextCompat.getColor(mContext, R.color.colorPrimaryDark));
+//        }
         setUi();
         btn_login.setOnClickListener(this);
     }
@@ -58,7 +50,6 @@ public class LoginForm extends AppCompatActivity implements View.OnClickListener
     private void setUi() {
         input_email= (EditText) findViewById(R.id.input_email);
         btn_login= (AppCompatButton) findViewById(R.id.btn_login);
-        progressLogin= (ProgressWheel) findViewById(R.id.progressLogin);
     }
 
 
@@ -71,12 +62,8 @@ public class LoginForm extends AppCompatActivity implements View.OnClickListener
 
                 btn_login.setEnabled(false);
                 final ProgressDialog progressDialog=new ProgressDialog(mContext);
-                LayoutInflater inflater = getLayoutInflater();
-                View dialogView = inflater.inflate(R.layout.progress_wheel, null);
-                progressDialog.setView(dialogView);
-                progressLogin= (ProgressWheel) dialogView.findViewById(R.id.progressLogin);
+
                 progressDialog.setMessage("Loading..");
-                progressLogin.spin();
                 progressDialog.setCancelable(false);
                 progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Large);
 
@@ -86,12 +73,7 @@ public class LoginForm extends AppCompatActivity implements View.OnClickListener
                     public void receiveResult(Object result) {
                         try {
 
-                            if (progressLogin.isSpinning()) {
-                                progressLogin.stopSpinning();
-                                btn_login.setEnabled(true);
-                                progressDialog.dismiss();
-                            }
-
+                            progressDialog.dismiss();
                             JSONObject jsonObject=new JSONObject(result.toString());
                             if (!jsonObject.getBoolean("error")) {
                                 Intent intent = new Intent(mContext, NewLocation.class);
@@ -104,7 +86,7 @@ public class LoginForm extends AppCompatActivity implements View.OnClickListener
                                 bundle.putString("email",jsonObject1.getString("email"));
                                 sessionManager.setTrackTimeInterval(jsonObject1.getString("track_time_interval"));
                                 sessionManager.setTrackTimeOut(jsonObject1.getString("track_time_out"));
-
+                                sessionManager.setLoggedHours(0);
                                 sessionManager.setAuthToken(jsonObject1.getString("auth_token"));
                                 intent.putExtras(bundle);
                                 sessionManager.setId(jsonObject1.getString("tracking_id"));
@@ -116,17 +98,14 @@ public class LoginForm extends AppCompatActivity implements View.OnClickListener
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
+                            progressDialog.dismiss();
                         }
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        if (progressLogin.isSpinning()) {
-                            btn_login.setEnabled(true);
-                            progressLogin.stopSpinning();
-                            progressDialog.dismiss();
+                        progressDialog.dismiss();
 
-                        }
                         Toast.makeText(mContext,R.string.login_error_msg,Toast.LENGTH_SHORT).show();
 
                     }

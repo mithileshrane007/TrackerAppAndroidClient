@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
-
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="true">
 
     <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:fillViewport="true"
-        android:background="@color/backGroundcolor"
+        android:background="@color/white"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-
+        android:fitsSystemWindows="true"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -21,21 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.example.infiny.mylocationtracker.Utils.ProgressWheel
-                android:id="@+id/progressLogin"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_centerInParent="true"
-                android:visibility="gone"
-                ProgressWheel:text="Loading.."
-                ProgressWheel:textColor="#fff"
-                ProgressWheel:textSize="14sp"
-                ProgressWheel:rimColor="@color/timer_color"
-                ProgressWheel:barLength="60dp"
-                ProgressWheel:barColor="@color/white"
-                ProgressWheel:barWidth="5dp"
-                ProgressWheel:rimWidth="5dp"
-                />
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -59,36 +39,35 @@
 
                 android:layout_height="wrap_content">
                 <!--<android.support.design.widget.TextInputLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:id="@+id/input_email"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/input_email"-->
 
-                    <!--android:layout_above="@+id/btn_login"-->
-                    <!--android:theme="@style/EditTextHint"-->
-                    <!--android:layout_marginBottom="24dp">-->
-                    <EditText
-                        android:padding="15dp"
-                        android:inputType="textCapWords|textPersonName"
-                        android:maxLines="1"
-                        android:id="@+id/input_email"
-                        android:gravity="center"
-                        android:textCursorDrawable="@null"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginRight="40dp"
-                        android:theme="@style/EditTextHint"
-                        android:layout_marginBottom="17dp"
-                        android:textSize="@dimen/activity_horizontal_margin"
-                        android:layout_width="match_parent"
-                        android:textColor="@android:color/white"
-                        android:layout_height="wrap_content"
-                        android:hint="User ID" />
+                <!--android:layout_above="@+id/btn_login"-->
+                <!--android:theme="@style/EditTextHint"-->
+                <!--android:layout_marginBottom="24dp">-->
+                <EditText
+                    android:padding="15dp"
+                    android:inputType="textCapWords|textPersonName"
+                    android:maxLines="1"
+                    android:id="@+id/input_email"
+                    android:gravity="center"
+                    android:textCursorDrawable="@null"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="17dp"
+                    android:textSize="@dimen/activity_horizontal_margin"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/timer_color"
+                    android:layout_height="wrap_content"
+                    android:hint="User ID" />
                 <!--</android.support.design.widget.TextInputLayout>-->
 
 
 
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/btn_login"
-                    android:background="@android:color/holo_red_light"
+                    android:background="@color/timer_color"
                     android:layout_width="match_parent"
                     android:layout_marginLeft="40dp"
                     android:layout_marginBottom="80dp"
@@ -101,4 +80,3 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-</LinearLayout>

@@ -1,6 +1,9 @@
 package com.example.infiny.mylocationtracker.Activities;
 
+import android.app.AlarmManager;
 import android.app.IntentService;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
@@ -42,9 +45,33 @@ public class MyIntentLocationService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         Log.d("val","in onHandleIntent");
         try {
+
+
+
             final TimeZone tz = TimeZone.getDefault();
             Log.d("val","TimeZone   "+tz.getDisplayName(false, TimeZone.SHORT)+" Timezon id :: " +tz.getID()+"  DST :: "+tz.getDSTSavings());
             final SessionManager sessionManager=new SessionManager(getApplicationContext());
+
+            if (sessionManager.getLoggedHours()<=Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000){
+                long diff_hr=sessionManager.getTimerStartTime() - Calendar.getInstance().getTime().getTime();
+                sessionManager.setLoggedHours(sessionManager.getLoggedHours()+diff_hr);
+            }else {
+                Intent intentCancel=new Intent();
+                Calendar cur_cal = Calendar.getInstance();
+                cur_cal.setTimeInMillis(System.currentTimeMillis());
+                cur_cal.add(Calendar.SECOND, 2);
+                intentCancel.setAction("CANCEL_SENDING");
+                PendingIntent pendingI = PendingIntent.getBroadcast(getApplicationContext(),1, intentCancel, 0);
+                AlarmManager alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmMgr.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), 1, pendingI);
+                return;
+
+            }
+
+
+
+
+
             GPSTracker gpsTracker=new GPSTracker(getApplicationContext());
             if (gpsTracker==null) {
                 gpsTracker = new GPSTracker(getApplicationContext());
