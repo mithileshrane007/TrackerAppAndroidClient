@@ -200,9 +200,9 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
 ////        time.set(Calendar.MINUTE, 30);
 
         checkListener=new CheckListener();
-        stopServiceListener  =new StopServiceListener();
+        stopServiceListener  = new StopServiceListener();
         registerReceiver(stopServiceListener,new IntentFilter("CANCEL_SENDING"));
-        registerReceiver(checkListener,new IntentFilter("CHECK_TRACK"));
+//        registerReceiver(checkListener,new IntentFilter("CHECK_TRACK"));
 
 //
 //        Intent intentCancel=new Intent();
@@ -336,7 +336,6 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                                 try {
                                     JSONObject jsonObject=new JSONObject(response);
 
-
                                     if (!jsonObject.getBoolean("error")) {
 //                                        if (LogCheck.count(LogCheck.class)<=0){
 //                                            LogCheck logCheck=new LogCheck();
@@ -397,7 +396,7 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
 //                                        }
                                     } else {
 
-                                        Toast.makeText(mContext,"Else",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(mContext,"Else setLoggedHours",Toast.LENGTH_SHORT).show();
                                     }
 
                                     if (sessionManager.getLoggedHours()<=Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000){
@@ -810,12 +809,11 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
 
 
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(stopServiceListener);
-        unregisterReceiver(checkListener);
+//        unregisterReceiver(checkListener);
 
 
     }

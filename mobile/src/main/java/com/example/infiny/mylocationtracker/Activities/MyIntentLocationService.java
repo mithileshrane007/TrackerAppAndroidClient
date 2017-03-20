@@ -225,6 +225,8 @@ public class MyIntentLocationService extends IntentService {
                     }
                 });
 //            iDataFetch.data(gpsTracker.getLatitude(),gpsTracker.getLatitude());
+            }else {
+                Toast.makeText(getApplicationContext(),"Cannot get location Turn GPS on for tracking to continue.",Toast.LENGTH_SHORT).show();
             }
 
             gpsTracker.stopUsingGPS();

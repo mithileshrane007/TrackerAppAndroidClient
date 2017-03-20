@@ -72,6 +72,8 @@ public class LoginForm extends AppCompatActivity implements View.OnClickListener
                     @Override
                     public void receiveResult(Object result) {
                         try {
+                            btn_login.setEnabled(true);
+
 
                             progressDialog.dismiss();
                             JSONObject jsonObject=new JSONObject(result.toString());
@@ -101,12 +103,15 @@ public class LoginForm extends AppCompatActivity implements View.OnClickListener
                         } catch (Exception e) {
                             e.printStackTrace();
                             progressDialog.dismiss();
+                            btn_login.setEnabled(true);
+
                         }
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.dismiss();
+                        btn_login.setEnabled(true);
 
                         Toast.makeText(mContext,R.string.login_error_msg,Toast.LENGTH_SHORT).show();
 

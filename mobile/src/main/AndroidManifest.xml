@@ -46,21 +46,22 @@
                 <uses-permission android:name="android.permission.WAKE_LOCK" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".Listeners.StopServiceListener">
-            <intent-filter>
-                <action android:name="CANCEL_SENDING" />
-            </intent-filter>
-        </receiver>
+        <!--<receiver android:name=".Listeners.StopServiceListener">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="CANCEL_SENDING" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
 
-        <receiver android:name=".Listeners.CheckListener">
-            <intent-filter>
-                <action android:name="CHECK_TRACK" />
-            </intent-filter>
-        </receiver>
+        <!--<receiver android:name=".Listeners.CheckListener">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="CHECK_TRACK" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
 
 
         <activity
             android:name=".Activities.SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -70,11 +71,15 @@
         </activity>
         <activity
             android:name=".Activities.NewLocation"
+            android:screenOrientation="portrait"
+
             android:label="@string/title_activity_new_location"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".Activities.LoginForm"
+            android:screenOrientation="portrait"
+
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
 
@@ -83,12 +88,10 @@
             android:enabled="true"
             android:exported="false" />
 
-
-
-        <activity
-            android:name=".Activities.CheckOutActivity"
-            android:label="@string/title_activity_check_out"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <service
+            android:name=".Listeners.ClearAllDataService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>

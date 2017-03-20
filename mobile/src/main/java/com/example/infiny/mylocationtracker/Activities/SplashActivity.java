@@ -232,7 +232,12 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        closeDialogs();
 
+    }
 
     public void showDialog() {
         try {

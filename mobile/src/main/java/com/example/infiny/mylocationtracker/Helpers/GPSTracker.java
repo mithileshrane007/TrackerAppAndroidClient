@@ -261,33 +261,37 @@ public class GPSTracker  implements LocationListener {
     }
 
     public void showSettingsAlertMaterial() {
-        MaterialDialog materialDialog=new MaterialDialog.Builder(mContext)
-                .title(R.string.no_gps)
-                .positiveText("Settings")
-                .negativeColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark))
-                .positiveColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark))
+        try {
+            MaterialDialog materialDialog=new MaterialDialog.Builder(mContext)
+                    .title(R.string.no_gps)
+                    .positiveText("Settings")
+                    .negativeColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark))
+                    .positiveColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark))
 
-                .negativeText("Exit")
-                .onPositive(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        dialog.dismiss();
+                    .negativeText("Exit")
+                    .onPositive(new MaterialDialog.SingleButtonCallback() {
+                        @Override
+                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                            dialog.dismiss();
 
-                        Intent intent = new Intent(
-                                Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                        mContext.startActivity(intent);
+                            Intent intent = new Intent(
+                                    Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                            mContext.startActivity(intent);
 
-                    }
-                }).onNegative(new MaterialDialog.SingleButtonCallback() {
-            @Override
-            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                dialog.dismiss();
+                        }
+                    }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                @Override
+                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                    dialog.dismiss();
 
-                ((Activity)mContext).finishAffinity();
+                    ((Activity)mContext).finishAffinity();
 
-            }
-        }).show();
-        materialDialog.setCancelable(false);
+                }
+            }).show();
+            materialDialog.setCancelable(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }

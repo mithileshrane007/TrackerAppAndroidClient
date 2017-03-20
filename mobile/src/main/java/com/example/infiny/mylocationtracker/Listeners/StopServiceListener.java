@@ -22,7 +22,6 @@ public class StopServiceListener extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         mContext = context;
-        checkAlarm();
         if (intent.getAction().equals("CANCEL_SENDING")) {
             Toast.makeText(context, "I m here StopServiceListener", Toast.LENGTH_SHORT).show();
             Intent intent1 = new Intent(context, MyIntentLocationService.class);
@@ -31,7 +30,6 @@ public class StopServiceListener extends BroadcastReceiver {
             alarmManager.cancel(pendingIntent);
             pendingIntent.cancel();
 
-
             // Clear all data after 24hrs
             Intent intentClear = new Intent(context, ClearAllDataService.class);
             PendingIntent pendingI = PendingIntent.getService(context, 5, intentClear, 0);
@@ -39,9 +37,12 @@ public class StopServiceListener extends BroadcastReceiver {
             Calendar cur_cal = Calendar.getInstance();
             cur_cal.setTimeInMillis(System.currentTimeMillis());
             cur_cal.add(Calendar.HOUR, 23);
+            cur_cal.add(Calendar.MINUTE, 50);
             alarmMgr.setExact(AlarmManager.RTC, cur_cal.getTimeInMillis(), pendingI);
 
         }
+        checkAlarm();
+
 
     }
     public void checkAlarm()
