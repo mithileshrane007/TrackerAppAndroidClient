@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.example.infiny.mylocationtracker.Activities.MyIntentLocationService;
 
+import java.util.Calendar;
+
 /**
  * Created by infiny on 9/3/17.
  */
@@ -29,6 +31,15 @@ public class StopServiceListener extends BroadcastReceiver {
             alarmManager.cancel(pendingIntent);
             pendingIntent.cancel();
 
+
+            // Clear all data after 24hrs
+            Intent intentClear = new Intent(context, ClearAllDataService.class);
+            PendingIntent pendingI = PendingIntent.getService(context, 5, intentClear, 0);
+            AlarmManager alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            Calendar cur_cal = Calendar.getInstance();
+            cur_cal.setTimeInMillis(System.currentTimeMillis());
+            cur_cal.add(Calendar.HOUR, 23);
+            alarmMgr.setExact(AlarmManager.RTC, cur_cal.getTimeInMillis(), pendingI);
 
         }
 

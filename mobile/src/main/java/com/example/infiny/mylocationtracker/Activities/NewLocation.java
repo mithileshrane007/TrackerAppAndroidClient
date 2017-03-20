@@ -5,7 +5,6 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
@@ -488,6 +487,8 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                         tv_start_stop.setText("Start");
                         progressBarMinutes.stopSpinning();
 
+                        long smallDiff=millis-sessionManager.getLoggedHoursTemp();
+                        sessionManager.setLoggedHours(sessionManager.getLoggedHours()+smallDiff+sessionManager.getLoggedHoursTemp());
 
 //                        sessionManager.setLoggedHours(sessionManager.getLoggedHours()+millis);
                         sessionManager.clearTimer();
@@ -626,37 +627,37 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
 
 
 
-                        final AlertDialog.Builder alertDialogBuilder=new AlertDialog.Builder(this);
-                        alertDialogBuilder.setPositiveButton("I'M SURE", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-
-//                                final ProgressDialog progressDialog=new ProgressDialog(mContext);
-//                                progressDialog.setTitle("Logging out");
-//                                progressDialog.setMessage("Please wait...");
-//                                progressDialog.show();
+//                        final AlertDialog.Builder alertDialogBuilder=new AlertDialog.Builder(this);
+//                        alertDialogBuilder.setPositiveButton("I'M SURE", new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int id) {
 //
-//                                new Handler().postDelayed(new Runnable() {
-//                                    @Override
-//                                    public void run() {
+////                                final ProgressDialog progressDialog=new ProgressDialog(mContext);
+////                                progressDialog.setTitle("Logging out");
+////                                progressDialog.setMessage("Please wait...");
+////                                progressDialog.show();
+////
+////                                new Handler().postDelayed(new Runnable() {
+////                                    @Override
+////                                    public void run() {
+////
+////                                        progressDialog.dismiss();
+////                                        sessionManager.clear();
+////                                        startActivity(new Intent(NewLocation.this,LoginForm.class));
+////                                        finish();
+////
+////                                    }
+////                                },3000);
+//                            }
+//                        });
+//                        alertDialogBuilder.setNegativeButton("NOT SURE", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
 //
-//                                        progressDialog.dismiss();
-//                                        sessionManager.clear();
-//                                        startActivity(new Intent(NewLocation.this,LoginForm.class));
-//                                        finish();
-//
-//                                    }
-//                                },3000);
-                            }
-                        });
-                        alertDialogBuilder.setNegativeButton("NOT SURE", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                            }
-                        });
-                        final AlertDialog alertDialog = alertDialogBuilder.create();
-                        alertDialog.setTitle("Log out?");
-                        alertDialog.show();
+//                            }
+//                        });
+//                        final AlertDialog alertDialog = alertDialogBuilder.create();
+//                        alertDialog.setTitle("Log out?");
+//                        alertDialog.show();
 
 
 

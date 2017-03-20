@@ -44,6 +44,7 @@ public class SessionManager {
     private String TRACK_TIME_OUT="tracktimeout";
     private String TRACK_TIME_INTERVAL = "tracktimeinterval";
     private String LOGGED_HOURS = "loggedhours";
+    private String LOGGED_HOURS_TEMP = "loggedhourstemp";
 
 
     // Constructor
@@ -144,10 +145,17 @@ public class SessionManager {
         editor.putLong(LOGGED_HOURS,loggedHours);
     }
 
+    public long getLoggedHoursTemp() {
+        return pref.getLong(LOGGED_HOURS_TEMP,0);
+    }
+
+    public void setLoggedHoursTemp(long loggedHours) {
+        editor.putLong(LOGGED_HOURS_TEMP,loggedHours);
+    }
+
     public long getLoggedHours() {
         return pref.getLong(LOGGED_HOURS,0);
     }
-
 
     public void setTrackTimeOut(String track_time_out) {
         editor.putString(TRACK_TIME_OUT,track_time_out);

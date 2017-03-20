@@ -87,6 +87,8 @@ public class LoginForm extends AppCompatActivity implements View.OnClickListener
                                 sessionManager.setTrackTimeInterval(jsonObject1.getString("track_time_interval"));
                                 sessionManager.setTrackTimeOut(jsonObject1.getString("track_time_out"));
                                 sessionManager.setLoggedHours(0);
+                                sessionManager.setLoggedHoursTemp(0);
+
                                 sessionManager.setAuthToken(jsonObject1.getString("auth_token"));
                                 intent.putExtras(bundle);
                                 sessionManager.setId(jsonObject1.getString("tracking_id"));

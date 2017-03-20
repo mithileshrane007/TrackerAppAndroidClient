@@ -54,7 +54,7 @@ public class MyIntentLocationService extends IntentService {
 
             if (sessionManager.getLoggedHours()<=Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000){
                 long diff_hr=sessionManager.getTimerStartTime() - Calendar.getInstance().getTime().getTime();
-                sessionManager.setLoggedHours(sessionManager.getLoggedHours()+diff_hr);
+                sessionManager.setLoggedHoursTemp(diff_hr);
             }else {
                 Intent intentCancel=new Intent();
                 Calendar cur_cal = Calendar.getInstance();
