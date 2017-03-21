@@ -46,16 +46,20 @@ public class MyIntentLocationService extends IntentService {
         Log.d("val","in onHandleIntent");
         try {
 
-
-
             final TimeZone tz = TimeZone.getDefault();
             Log.d("val","TimeZone   "+tz.getDisplayName(false, TimeZone.SHORT)+" Timezon id :: " +tz.getID()+"  DST :: "+tz.getDSTSavings());
             final SessionManager sessionManager=new SessionManager(getApplicationContext());
-
-            if (sessionManager.getLoggedHours()<=Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000){
+//            if (sessionManager.getLoggedHours()<=Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000){
+            if ((sessionManager.getLoggedHoursTemp() + sessionManager.getLoggedHours())<=Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000){
+                Toast.makeText(getApplicationContext(),"In if of checker",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"lohhefg"+sessionManager.getLoggedHours()+" out"+Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000,Toast.LENGTH_SHORT).show();
+                Log.d("check"," if lohhefg"+sessionManager.getLoggedHours()+" if out"+Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000);
                 long diff_hr=sessionManager.getTimerStartTime() - Calendar.getInstance().getTime().getTime();
                 sessionManager.setLoggedHoursTemp(diff_hr);
             }else {
+                Toast.makeText(getApplicationContext(),"In else of checker",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"lohhefg"+sessionManager.getLoggedHours()+" out"+Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000,Toast.LENGTH_SHORT).show();
+                Log.d("check","lohhefg else"+sessionManager.getLoggedHours()+" esle out"+Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000);
                 Intent intentCancel=new Intent();
                 Calendar cur_cal = Calendar.getInstance();
                 cur_cal.setTimeInMillis(System.currentTimeMillis());

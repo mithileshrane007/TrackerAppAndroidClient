@@ -32,15 +32,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_mobile_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_mobile_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_mobile_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_mobile_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_mobile_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_mobile_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/mobile/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/LoginForm.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/LoginForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/SplashActivity.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/SplashActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Helpers/GPSTracker.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Helpers/GPSTracker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Listeners/StopServiceListener.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Listeners/StopServiceListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wear/wear.iml" afterPath="$PROJECT_DIR$/wear/wear.iml" />
     </list>
     <ignored path="MyLocationTracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,26 +73,17 @@
       <file leaf-file-name="NewLocation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-434">
-              <caret line="294" column="16" selection-start-line="294" selection-start-column="16" selection-end-line="294" selection-end-column="16" />
+            <state relative-caret-position="226">
+              <caret line="619" column="0" selection-start-line="619" selection-start-column="0" selection-end-line="619" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#6789#6838#0" expanded="false" />
-                <element signature="e#7636#7638#0" expanded="false" />
                 <element signature="method#onOptionsItemSelected#0;class#NewLocation#0" expanded="false" />
-                <element signature="e#12288#19143#0" expanded="true" />
-                <element signature="e#12628#12709#0" expanded="false" />
-                <element signature="e#19142#19143#0" expanded="true" />
-                <element signature="e#22784#22983#0" expanded="true" />
-                <element signature="e#22982#22983#0" expanded="true" />
-                <element signature="e#24002#24151#0" expanded="false" />
-                <element signature="e#24272#24353#0" expanded="false" />
-                <element signature="e#33778#35582#0" expanded="true" />
-                <element signature="e#35581#35582#0" expanded="true" />
-                <element signature="e#38237#38261#0" expanded="true" />
-                <element signature="e#38557#38997#0" expanded="true" />
-                <element signature="e#38795#38819#0" expanded="true" />
-                <element signature="e#38996#38997#0" expanded="true" />
+                <element signature="e#12682#12763#0" expanded="false" />
+                <element signature="e#23015#23214#0" expanded="true" />
+                <element signature="e#23213#23214#0" expanded="true" />
+                <element signature="e#24233#24382#0" expanded="false" />
+                <element signature="e#24502#24583#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -109,11 +95,13 @@
             <state relative-caret-position="390">
               <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
-                <element signature="e#10235#10250#0" expanded="true" />
-                <element signature="e#10561#11036#0" expanded="true" />
-                <element signature="e#11035#11036#0" expanded="true" />
-                <element signature="e#11049#11348#0" expanded="true" />
-                <element signature="e#11347#11348#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#7197#7198#0" expanded="false" />
+                <element signature="e#7239#7240#0" expanded="false" />
+                <element signature="e#8382#8383#0" expanded="false" />
+                <element signature="e#8445#8446#0" expanded="false" />
+                <element signature="e#10021#10022#0" expanded="false" />
+                <element signature="e#10066#10067#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -122,8 +110,8 @@
       <file leaf-file-name="VolleyUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/NetworkUtils/VolleyUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="485" column="0" selection-start-line="485" selection-start-column="0" selection-end-line="485" selection-end-column="0" />
+            <state relative-caret-position="-78">
+              <caret line="583" column="0" selection-start-line="583" selection-start-column="0" selection-end-line="583" selection-end-column="0" />
               <folding>
                 <element signature="method#sendLocationDetails#0;class#VolleyUtils#0" expanded="false" />
                 <element signature="method#sendLocationDetailArray#0;class#VolleyUtils#0" expanded="false" />
@@ -135,30 +123,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="88" column="39" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
           <provider editor-type-id="android-manifest">
             <state />
           </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1185">
+              <caret line="79" column="39" selection-start-line="79" selection-start-column="39" selection-end-line="79" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyIntentLocationService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MyIntentLocationService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="226" column="75" selection-start-line="226" selection-start-column="75" selection-end-line="226" selection-end-column="75" />
+            <state relative-caret-position="285">
+              <caret line="61" column="48" selection-start-line="61" selection-start-column="48" selection-end-line="61" selection-end-column="48" />
               <folding>
-                <element signature="e#3182#3214#0" expanded="false" />
-                <element signature="e#3714#3878#0" expanded="false" />
-                <element signature="e#4990#5933#0" expanded="true" />
-                <element signature="e#5932#5933#0" expanded="true" />
-                <element signature="e#5956#5958#0" expanded="false" />
+                <element signature="e#4216#4248#0" expanded="false" />
+                <element signature="e#4748#4912#0" expanded="false" />
+                <element signature="e#6990#6992#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -167,8 +153,8 @@
       <file leaf-file-name="SessionManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Helpers/SessionManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="132" column="44" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="44" />
+            <state relative-caret-position="380">
+              <caret line="166" column="33" selection-start-line="166" selection-start-column="18" selection-end-line="166" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -177,14 +163,10 @@
       <file leaf-file-name="SplashActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/SplashActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
+            <state relative-caret-position="3210">
               <caret line="244" column="27" selection-start-line="244" selection-start-column="27" selection-end-line="244" selection-end-column="27" />
               <folding>
-                <element signature="e#10323#10354#0" expanded="true" />
-                <element signature="e#10665#11143#0" expanded="true" />
-                <element signature="e#11142#11143#0" expanded="true" />
-                <element signature="e#11156#11526#0" expanded="true" />
-                <element signature="e#11525#11526#0" expanded="true" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -193,11 +175,9 @@
       <file leaf-file-name="StopServiceListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Listeners/StopServiceListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="585">
               <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -3475,10 +3455,10 @@
         <option value="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/SplashActivity.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Helpers/GPSTracker.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/LoginForm.java" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Listeners/StopServiceListener.java" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java" />
       </list>
     </option>
   </component>
@@ -3513,144 +3493,15 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane />
+      </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane />
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyLocationTracker" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyLocationTracker" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyLocationTracker" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyLocationTracker" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mylocationtracker" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyLocationTracker" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mylocationtracker" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Listeners" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyLocationTracker" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mylocationtracker" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConfigApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyLocationTracker" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mylocationtracker" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Activities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyLocationTracker" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -4073,9 +3924,9 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18094476" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18094476" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19516128" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45806453" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -4086,8 +3937,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18334667" sideWeight="0.4935484" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18334667" sideWeight="0.4935484" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298639" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -4099,6 +3949,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31064853" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -4224,7 +4075,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>302</line>
+          <line>303</line>
           <properties />
           <option name="timeStamp" value="58" />
         </line-breakpoint>
@@ -4278,7 +4129,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java</url>
-          <line>51</line>
+          <line>49</line>
           <properties />
           <option name="timeStamp" value="83" />
         </line-breakpoint>
@@ -4302,13 +4153,13 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java</url>
-          <line>234</line>
+          <line>238</line>
           <properties />
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java</url>
-          <line>80</line>
+          <line>84</line>
           <properties />
           <option name="timeStamp" value="93" />
         </line-breakpoint>
@@ -4326,13 +4177,13 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>450</line>
+          <line>458</line>
           <properties />
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>449</line>
+          <line>457</line>
           <properties />
           <option name="timeStamp" value="103" />
         </line-breakpoint>
@@ -4392,19 +4243,19 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java</url>
-          <line>150</line>
+          <line>154</line>
           <properties />
           <option name="timeStamp" value="118" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java</url>
-          <line>193</line>
+          <line>197</line>
           <properties />
           <option name="timeStamp" value="119" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java</url>
-          <line>201</line>
+          <line>205</line>
           <properties />
           <option name="timeStamp" value="120" />
         </line-breakpoint>
@@ -4458,25 +4309,25 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>750</line>
+          <line>772</line>
           <properties />
           <option name="timeStamp" value="142" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>755</line>
+          <line>777</line>
           <properties />
           <option name="timeStamp" value="143" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>772</line>
+          <line>794</line>
           <properties />
           <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>462</line>
+          <line>470</line>
           <properties />
           <option name="timeStamp" value="145" />
         </line-breakpoint>
@@ -4500,49 +4351,49 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>902</line>
+          <line>924</line>
           <properties />
           <option name="timeStamp" value="155" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>904</line>
+          <line>926</line>
           <properties />
           <option name="timeStamp" value="157" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>903</line>
+          <line>925</line>
           <properties />
           <option name="timeStamp" value="158" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>905</line>
+          <line>927</line>
           <properties />
           <option name="timeStamp" value="159" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>897</line>
+          <line>919</line>
           <properties />
           <option name="timeStamp" value="160" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java</url>
-          <line>93</line>
+          <line>97</line>
           <properties />
           <option name="timeStamp" value="161" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java</url>
-          <line>114</line>
+          <line>118</line>
           <properties />
           <option name="timeStamp" value="162" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java</url>
-          <line>122</line>
+          <line>126</line>
           <properties />
           <option name="timeStamp" value="163" />
         </line-breakpoint>
@@ -4554,17 +4405,17 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java</url>
-          <line>189</line>
+          <line>193</line>
           <properties />
           <option name="timeStamp" value="168" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java</url>
-          <line>125</line>
+          <line>129</line>
           <properties />
           <option name="timeStamp" value="169" />
         </line-breakpoint>
-        <line-breakpoint type="java-line">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/NetworkUtils/VolleyUtils.java</url>
           <line>604</line>
           <properties />
@@ -4572,103 +4423,103 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>332</line>
+          <line>333</line>
           <properties />
           <option name="timeStamp" value="178" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>522</line>
+          <line>530</line>
           <properties />
           <option name="timeStamp" value="185" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Listeners/StopServiceListener.java</url>
           <line>25</line>
           <properties />
           <option name="timeStamp" value="194" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Listeners/StopServiceListener.java</url>
           <line>29</line>
           <properties />
           <option name="timeStamp" value="195" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>454</line>
+          <line>462</line>
           <properties />
           <option name="timeStamp" value="208" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Listeners/CheckListener.java</url>
           <line>42</line>
           <properties />
           <option name="timeStamp" value="210" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Listeners/CheckListener.java</url>
           <line>50</line>
           <properties />
           <option name="timeStamp" value="212" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Listeners/CheckListener.java</url>
           <line>44</line>
           <properties />
           <option name="timeStamp" value="214" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>368</line>
+          <line>369</line>
           <properties />
           <option name="timeStamp" value="226" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>389</line>
+          <line>390</line>
           <properties />
           <option name="timeStamp" value="227" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>560</line>
+          <line>567</line>
           <properties />
           <option name="timeStamp" value="228" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>581</line>
+          <line>588</line>
           <properties />
           <option name="timeStamp" value="229" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/NetworkUtils/VolleyUtils.java</url>
           <line>544</line>
           <properties />
           <option name="timeStamp" value="230" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/NetworkUtils/VolleyUtils.java</url>
           <line>531</line>
           <properties />
           <option name="timeStamp" value="231" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/NetworkUtils/VolleyUtils.java</url>
           <line>536</line>
           <properties />
           <option name="timeStamp" value="232" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>614</line>
+          <line>607</line>
           <properties />
           <option name="timeStamp" value="234" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>665</line>
+          <line>674</line>
           <properties />
           <option name="timeStamp" value="235" />
         </line-breakpoint>
@@ -4684,73 +4535,73 @@
           <properties />
           <option name="timeStamp" value="237" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>338</line>
+          <line>339</line>
           <properties />
           <option name="timeStamp" value="238" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/NetworkUtils/VolleyUtils.java</url>
           <line>522</line>
           <properties />
           <option name="timeStamp" value="239" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>521</line>
+          <line>529</line>
           <properties />
           <option name="timeStamp" value="241" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>360</line>
+          <line>361</line>
           <properties />
           <option name="timeStamp" value="242" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>366</line>
+          <line>367</line>
           <properties />
           <option name="timeStamp" value="243" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>339</line>
+          <line>340</line>
           <properties />
           <option name="timeStamp" value="244" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Utils/DateUtils.java</url>
           <line>17</line>
           <properties />
           <option name="timeStamp" value="245" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Utils/DateUtils.java</url>
           <line>44</line>
           <properties />
           <option name="timeStamp" value="246" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>758</line>
+          <line>780</line>
           <properties />
           <option name="timeStamp" value="247" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/NetworkUtils/VolleyUtils.java</url>
           <line>498</line>
           <properties />
           <option name="timeStamp" value="248" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/NetworkUtils/VolleyUtils.java</url>
           <line>490</line>
           <properties />
           <option name="timeStamp" value="249" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/NetworkUtils/VolleyUtils.java</url>
           <line>485</line>
           <properties />
@@ -4758,25 +4609,25 @@
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>517</line>
+          <line>525</line>
           <properties method="onResponse" />
           <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>496</line>
+          <line>504</line>
           <properties method="onResponse" />
           <option name="timeStamp" value="181" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>502</line>
+          <line>510</line>
           <properties method="onErrorResponse" />
           <option name="timeStamp" value="182" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java</url>
-          <line>620</line>
+          <line>613</line>
           <properties method="onErrorResponse" />
           <option name="timeStamp" value="187" />
         </line-breakpoint>
@@ -5028,7 +4879,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -5074,13 +4924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.volley/volley/1.0.0/c79696d64f9520675054e27b77f490c17d8b4b9e/volley-1.0.0-sources.jar!/com/android/volley/Request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="413" column="0" selection-start-line="413" selection-start-column="0" selection-end-line="413" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Utils/DateUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -5093,24 +4936,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="25" column="65" selection-start-line="25" selection-start-column="65" selection-end-line="25" selection-end-column="65" />
-          <folding>
-            <element signature="e#603#604#0" expanded="false" />
-            <element signature="e#632#633#0" expanded="false" />
-            <element signature="e#676#677#0" expanded="false" />
-            <element signature="e#712#713#0" expanded="false" />
-            <element signature="e#746#747#0" expanded="false" />
-            <element signature="e#776#777#0" expanded="false" />
-            <element signature="e#822#823#0" expanded="false" />
-            <element signature="e#860#861#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Helpers/SessionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="132" column="44" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5119,21 +4944,17 @@
         <state relative-caret-position="106">
           <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/SplashActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
+        <state relative-caret-position="3210">
           <caret line="244" column="27" selection-start-line="244" selection-start-column="27" selection-end-line="244" selection-end-column="27" />
           <folding>
-            <element signature="e#10323#10354#0" expanded="true" />
-            <element signature="e#10665#11143#0" expanded="true" />
-            <element signature="e#11142#11143#0" expanded="true" />
-            <element signature="e#11156#11526#0" expanded="true" />
-            <element signature="e#11525#11526#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -5143,76 +4964,22 @@
         <state relative-caret-position="390">
           <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
-            <element signature="e#10235#10250#0" expanded="true" />
-            <element signature="e#10561#11036#0" expanded="true" />
-            <element signature="e#11035#11036#0" expanded="true" />
-            <element signature="e#11049#11348#0" expanded="true" />
-            <element signature="e#11347#11348#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/NetworkUtils/VolleyUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="485" column="0" selection-start-line="485" selection-start-column="0" selection-end-line="485" selection-end-column="0" />
-          <folding>
-            <element signature="method#sendLocationDetails#0;class#VolleyUtils#0" expanded="false" />
-            <element signature="method#sendLocationDetailArray#0;class#VolleyUtils#0" expanded="false" />
-            <element signature="method#sendLocationDetailArray2#0;class#VolleyUtils#0" expanded="false" />
-            <element signature="method#sendLocationDetailArray2#1;class#VolleyUtils#0" expanded="false" />
-            <element signature="method#check#0;class#VolleyUtils#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#7197#7198#0" expanded="false" />
+            <element signature="e#7239#7240#0" expanded="false" />
+            <element signature="e#8382#8383#0" expanded="false" />
+            <element signature="e#8445#8446#0" expanded="false" />
+            <element signature="e#10021#10022#0" expanded="false" />
+            <element signature="e#10066#10067#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Listeners/StopServiceListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="585">
           <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-434">
-          <caret line="294" column="16" selection-start-line="294" selection-start-column="16" selection-end-line="294" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6789#6838#0" expanded="false" />
-            <element signature="e#7636#7638#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#NewLocation#0" expanded="false" />
-            <element signature="e#12288#19143#0" expanded="true" />
-            <element signature="e#12628#12709#0" expanded="false" />
-            <element signature="e#19142#19143#0" expanded="true" />
-            <element signature="e#22784#22983#0" expanded="true" />
-            <element signature="e#22982#22983#0" expanded="true" />
-            <element signature="e#24002#24151#0" expanded="false" />
-            <element signature="e#24272#24353#0" expanded="false" />
-            <element signature="e#33778#35582#0" expanded="true" />
-            <element signature="e#35581#35582#0" expanded="true" />
-            <element signature="e#38237#38261#0" expanded="true" />
-            <element signature="e#38557#38997#0" expanded="true" />
-            <element signature="e#38795#38819#0" expanded="true" />
-            <element signature="e#38996#38997#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="226" column="75" selection-start-line="226" selection-start-column="75" selection-end-line="226" selection-end-column="75" />
-          <folding>
-            <element signature="e#3182#3214#0" expanded="false" />
-            <element signature="e#3714#3878#0" expanded="false" />
-            <element signature="e#4990#5933#0" expanded="true" />
-            <element signature="e#5932#5933#0" expanded="true" />
-            <element signature="e#5956#5958#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -5221,10 +4988,10 @@
         <state relative-caret-position="120">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
           <folding>
-            <element signature="e#2365#4716#0" expanded="true" />
-            <element signature="e#4360#4384#0" expanded="true" />
-            <element signature="e#4715#4716#0" expanded="true" />
-            <element signature="e#4999#5023#0" expanded="true" />
+            <element signature="e#2365#4716#0" expanded="false" />
+            <element signature="e#4360#4384#0" expanded="false" />
+            <element signature="e#4715#4716#0" expanded="false" />
+            <element signature="e#4999#5023#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -5238,14 +5005,73 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="88" column="39" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
+        <state relative-caret-position="1185">
+          <caret line="79" column="39" selection-start-line="79" selection-start-column="39" selection-end-line="79" selection-end-column="39" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.volley/volley/1.0.0/c79696d64f9520675054e27b77f490c17d8b4b9e/volley-1.0.0-sources.jar!/com/android/volley/Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="433" column="0" selection-start-line="433" selection-start-column="0" selection-end-line="433" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Helpers/SessionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="166" column="33" selection-start-line="166" selection-start-column="18" selection-end-line="166" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/NetworkUtils/VolleyUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78">
+          <caret line="583" column="0" selection-start-line="583" selection-start-column="0" selection-end-line="583" selection-end-column="0" />
+          <folding>
+            <element signature="method#sendLocationDetails#0;class#VolleyUtils#0" expanded="false" />
+            <element signature="method#sendLocationDetailArray#0;class#VolleyUtils#0" expanded="false" />
+            <element signature="method#sendLocationDetailArray2#0;class#VolleyUtils#0" expanded="false" />
+            <element signature="method#sendLocationDetailArray2#1;class#VolleyUtils#0" expanded="false" />
+            <element signature="method#check#0;class#VolleyUtils#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/NewLocation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="619" column="0" selection-start-line="619" selection-start-column="0" selection-end-line="619" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6789#6838#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#NewLocation#0" expanded="false" />
+            <element signature="e#12682#12763#0" expanded="false" />
+            <element signature="e#23015#23214#0" expanded="true" />
+            <element signature="e#23213#23214#0" expanded="true" />
+            <element signature="e#24233#24382#0" expanded="false" />
+            <element signature="e#24502#24583#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/example/infiny/mylocationtracker/Activities/MyIntentLocationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="61" column="48" selection-start-line="61" selection-start-column="48" selection-end-line="61" selection-end-column="48" />
+          <folding>
+            <element signature="e#4216#4248#0" expanded="false" />
+            <element signature="e#4748#4912#0" expanded="false" />
+            <element signature="e#6990#6992#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

@@ -299,6 +299,7 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
         switch (view.getId())
         {
             case R.id.iv_start_stop:
+                final boolean[] fromServer = {false};
 
                 if (!sessionManager.getClicked()) {
 
@@ -394,32 +395,17 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
 //                                            alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 //                                            alarmMgr.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingI);
 //                                        }
+                                        if (Double.parseDouble(jsonObject.getString("loggedhour")) >= Double.parseDouble(sessionManager.getTrackTimeOut())) {
+                                            fromServer[0] =true;
+                                        }else {
+                                            fromServer[0] =false;
+                                        }
                                     } else {
 
                                         Toast.makeText(mContext,"Else setLoggedHours",Toast.LENGTH_SHORT).show();
                                     }
 
-                                    if (sessionManager.getLoggedHours()<=Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000){
 
-                                    }else {
-
-                                        sessionManager.setClicked(false);
-                                        stoptimertask(iv_start_stop);
-                                        iv_start_stop.setImageResource(R.drawable.ic_play_circle_filled_white_48dp);
-                                        tv_start_stop.setText("Start");
-                                        progressBarMinutes.stopSpinning();
-                                        sessionManager.clearTimer();
-
-                                        Intent intentCancel=new Intent();
-                                        Calendar cur_cal = Calendar.getInstance();
-                                        cur_cal.setTimeInMillis(System.currentTimeMillis());
-                                        cur_cal.add(Calendar.SECOND, 2);
-                                        intentCancel.setAction("CANCEL_SENDING");
-                                        PendingIntent pendingI = PendingIntent.getBroadcast(getApplicationContext(),1, intentCancel, 0);
-                                        AlarmManager alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                                        alarmMgr.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), 1, pendingI);
-
-                                    }
 
 
                                 }catch (Exception e) {
@@ -432,6 +418,28 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
 
                             }
                         });
+
+                        if (sessionManager.getLoggedHours()<=Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000){
+
+                        }else {
+
+                            sessionManager.setClicked(false);
+                            stoptimertask(iv_start_stop);
+                            iv_start_stop.setImageResource(R.drawable.ic_play_circle_filled_white_48dp);
+                            tv_start_stop.setText("Start");
+                            progressBarMinutes.stopSpinning();
+                            sessionManager.clearTimer();
+
+                            Intent intentCancel=new Intent();
+                            Calendar cur_cal = Calendar.getInstance();
+                            cur_cal.setTimeInMillis(System.currentTimeMillis());
+                            cur_cal.add(Calendar.SECOND, 2);
+                            intentCancel.setAction("CANCEL_SENDING");
+                            PendingIntent pendingI = PendingIntent.getBroadcast(getApplicationContext(),1, intentCancel, 0);
+                            AlarmManager alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                            alarmMgr.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), 1, pendingI);
+
+                        }
                         iv_start_stop.setImageResource(R.drawable.ic_stop_white_48dp);
                         tv_start_stop.setText("Stop");
                         progressBarMinutes.spin();
@@ -524,7 +532,6 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
 //
 //                                    }
 
-
                                     if (!jsonObject.getBoolean("error")) {
 //                                        if (LogCheck.count(LogCheck.class)<=0){
 //                                            LogCheck logCheck=new LogCheck();
@@ -585,30 +592,16 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
 //                                            alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 //                                            alarmMgr.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingI);
 //                                        }
+                                        if (Double.parseDouble(jsonObject.getString("loggedhour"))>=Double.parseDouble(sessionManager.getTrackTimeOut()))
+                                            fromServer[0] = true;
+                                        else
+                                            fromServer[0] = false;
+
 
                                     } else {
 
-                                        Toast.makeText(mContext,"Else",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(mContext,"Else setLoggedHours" ,Toast.LENGTH_SHORT).show();
                                     }
-
-
-
-                                    if (sessionManager.getLoggedHours()<=Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000){
-
-                                    }else {
-
-
-                                        Intent intentCancel=new Intent();
-                                        Calendar cur_cal = Calendar.getInstance();
-                                        cur_cal.setTimeInMillis(System.currentTimeMillis());
-                                        cur_cal.add(Calendar.SECOND, 2);
-                                        intentCancel.setAction("CANCEL_SENDING");
-                                        PendingIntent pendingI = PendingIntent.getBroadcast(getApplicationContext(),1, intentCancel, 0);
-                                        AlarmManager alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                                        alarmMgr.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), 1, pendingI);
-
-                                    }
-
 
 
                                 }catch (Exception e) {
@@ -624,6 +617,22 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                         });
 
 
+
+                        if (sessionManager.getLoggedHours()<=Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000){
+
+                        }else {
+
+
+                            Intent intentCancel=new Intent();
+                            Calendar cur_cal = Calendar.getInstance();
+                            cur_cal.setTimeInMillis(System.currentTimeMillis());
+                            cur_cal.add(Calendar.SECOND, 2);
+                            intentCancel.setAction("CANCEL_SENDING");
+                            PendingIntent pendingI = PendingIntent.getBroadcast(getApplicationContext(),1, intentCancel, 0);
+                            AlarmManager alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                            alarmMgr.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), 1, pendingI);
+
+                        }
 
 
 //                        final AlertDialog.Builder alertDialogBuilder=new AlertDialog.Builder(this);
@@ -666,6 +675,19 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                         e.printStackTrace();
                     }
 
+                }
+
+
+
+                if (fromServer[0]) {
+                    Intent intentCancel=new Intent();
+                    Calendar cur_cal = Calendar.getInstance();
+                    cur_cal.setTimeInMillis(System.currentTimeMillis());
+                    cur_cal.add(Calendar.SECOND, 2);
+                    intentCancel.setAction("CANCEL_SENDING");
+                    PendingIntent pendingI = PendingIntent.getBroadcast(getApplicationContext(),1, intentCancel, 0);
+                    AlarmManager alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                    alarmMgr.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), 1, pendingI);
                 }
                 break;
 
