@@ -567,14 +567,6 @@ public class VolleyUtils {
 
 
 
-
-
-
-
-
-
-
-
     public void setLoggedHours(final String target_id,final String date,final String time,final boolean is_start,final boolean is_stop, final String authToken, final Response.Listener<String> callback, final Response.ErrorListener errorCall) {
         String url= Config.BASE_URL + Config.LOGGED_HOURS;
 
@@ -589,7 +581,6 @@ public class VolleyUtils {
                 errorCall.onErrorResponse(error);
             }
         }){
-
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

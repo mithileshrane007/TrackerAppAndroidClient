@@ -419,6 +419,11 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                             }
                         });
 
+                        iv_start_stop.setImageResource(R.drawable.ic_stop_white_48dp);
+                        tv_start_stop.setText("Stop");
+                        progressBarMinutes.spin();
+                        progressBarMinutes.setSpinSpeed(1);
+
                         if (sessionManager.getLoggedHours()<=Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000){
 
                         }else {
@@ -440,10 +445,7 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                             alarmMgr.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), 1, pendingI);
 
                         }
-                        iv_start_stop.setImageResource(R.drawable.ic_stop_white_48dp);
-                        tv_start_stop.setText("Stop");
-                        progressBarMinutes.spin();
-                        progressBarMinutes.setSpinSpeed(1);
+
 
 
                         Log.d("val", "in time star::" + starttime);
@@ -455,7 +457,7 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                         pintent = PendingIntent.getService(getApplicationContext(), 0, intent, 0);
                         alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                         long interval =Long.valueOf(sessionManager.getTrackTimeInterval());
-                        interval=interval*60000;
+                        interval=interval*60000;   // 1 min = 60000 millsec
                         alarm.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), interval, pintent);
 
 //                        alarm.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), 30000, pintent);
@@ -617,7 +619,7 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                         });
 
 
-
+                        //1hr = 3600 * 1000 millsec
                         if (sessionManager.getLoggedHours()<=Long.parseLong(sessionManager.getTrackTimeOut())*3600*1000){
 
                         }else {
