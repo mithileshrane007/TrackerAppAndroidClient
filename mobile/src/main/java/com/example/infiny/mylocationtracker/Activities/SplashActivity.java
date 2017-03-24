@@ -1,5 +1,7 @@
 package com.example.infiny.mylocationtracker.Activities;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.example.infiny.mylocationtracker.Helpers.ConnectivityReceiver;
 import com.example.infiny.mylocationtracker.Helpers.GPSTracker;
 import com.example.infiny.mylocationtracker.Helpers.SessionManager;
+import com.example.infiny.mylocationtracker.Listeners.ClearAllDataService;
 import com.example.infiny.mylocationtracker.Models.LogSend;
 import com.example.infiny.mylocationtracker.NetworkUtils.VolleyUtils;
 import com.example.infiny.mylocationtracker.R;
@@ -189,6 +192,16 @@ public class SplashActivity extends AppCompatActivity {
                                 startActivity(new Intent(SplashActivity.this,LoginForm.class));
                             sessionManager.setLocation(gpsTracker.getLatitude(),gpsTracker.getLongitude());
 
+                            if(sessionManager.getTrackTimeOut().equals("")) {
+                                // Clear all data after 2 sec
+                                Intent intentClear = new Intent(mContext, ClearAllDataService.class);
+                                PendingIntent pendingI = PendingIntent.getService(mContext, 10, intentClear, 0);
+                                AlarmManager alarmMgr = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
+                                Calendar cur_cal = Calendar.getInstance();
+                                cur_cal.setTimeInMillis(System.currentTimeMillis());
+                                cur_cal.add(Calendar.SECOND, 2);
+                                alarmMgr.setExact(AlarmManager.RTC, cur_cal.getTimeInMillis(), pendingI);
+                            }
                             finish();
                         }
 

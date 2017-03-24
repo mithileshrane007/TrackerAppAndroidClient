@@ -21,7 +21,7 @@ public class OnBootReceiver extends BroadcastReceiver {
         {
             SessionManager sessionManager=new SessionManager(mContext);
             Log.d("val","in data::"+gpsTracker.getLatitude()+gpsTracker.getLatitude());
-            sessionManager.setLocation(gpsTracker.getLatitude(),gpsTracker.getLatitude());
+            sessionManager.setLocation(gpsTracker.getLatitude(),gpsTracker.getLongitude());
 //            iDataFetch.data(gpsTracker.getLatitude(),gpsTracker.getLatitude());
         }
 

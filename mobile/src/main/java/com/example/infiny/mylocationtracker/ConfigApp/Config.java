@@ -6,7 +6,9 @@ package com.example.infiny.mylocationtracker.ConfigApp;
 public class Config {
 //    public static final String BASE_URL = "http://192.168.1.169:3000/";  //Localhost
     public static final String BASE_URL = "http://dev2.infiny.in:3030/api/v1/";  //server
-    public static final Object IMG_URL = "http://dev2.infiny.in:3030";
+    public static final String IMG_URL = "http://dev2.infiny.in:3030";
+
+    public static final String BASE_URL_LOCAL = "http://192.168.1.241:3000/api/v1/";  //Localhost
 
     public static final String LOG_SEND="logs_create";  //log send
     public static final String LOGIN = "targets_login";  //login

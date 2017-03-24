@@ -84,8 +84,8 @@ public class MyIntentLocationService extends IntentService {
 
             if(gpsTracker.canGetLocation())
             {
-                Log.d("val","in data::"+gpsTracker.getLatitude()+gpsTracker.getLatitude());
-                sessionManager.setLocation(gpsTracker.getLatitude(),gpsTracker.getLatitude());
+                Log.d("val","in data::"+gpsTracker.getLatitude()+gpsTracker.getLongitude());
+                sessionManager.setLocation(gpsTracker.getLatitude(),gpsTracker.getLongitude());
 //                String GMT="";
 //                if (tz.getDisplayName(false, TimeZone.SHORT).contains("+")) {
 //                    GMT="+"+tz.getDisplayName(false, TimeZone.SHORT).split("\\+")[1];
@@ -192,7 +192,7 @@ public class MyIntentLocationService extends IntentService {
 
 
                 final GPSTracker finalGpsTracker = gpsTracker;
-                volleyUtils.sendLocationDetailArray3(sessionManager.getId(),sessionManager.getAuthToken(),gpsTracker.getLatitude(), gpsTracker.getLatitude(),TimeZone.getDefault().getID(), Calendar.getInstance().getTime().toString(),new Response.Listener<String>() {
+                volleyUtils.sendLocationDetailArray3(sessionManager.getId(),sessionManager.getAuthToken(),gpsTracker.getLatitude(), gpsTracker.getLongitude(),TimeZone.getDefault().getID(), Calendar.getInstance().getTime().toString(),new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(getApplicationContext(),"single mylocserv respo",Toast.LENGTH_SHORT).show();
@@ -203,7 +203,7 @@ public class MyIntentLocationService extends IntentService {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(getApplicationContext(),"single mylocserv error",Toast.LENGTH_SHORT).show();
-                        LogSend logSend = new LogSend(sessionManager.getId(),String.valueOf(finalGpsTracker.getLatitude()),String.valueOf(finalGpsTracker.getLatitude()),TimeZone.getDefault().getID(), Calendar.getInstance().getTime().toString());
+                        LogSend logSend = new LogSend(sessionManager.getId(),String.valueOf(finalGpsTracker.getLatitude()),String.valueOf(finalGpsTracker.getLongitude()),TimeZone.getDefault().getID(), Calendar.getInstance().getTime().toString());
                         logSend.save();
 
                         error.printStackTrace();

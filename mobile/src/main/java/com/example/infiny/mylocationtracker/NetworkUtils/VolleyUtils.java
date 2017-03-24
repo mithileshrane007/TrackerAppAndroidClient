@@ -567,7 +567,7 @@ public class VolleyUtils {
 
 
 
-    public void setLoggedHours(final String target_id,final String date,final String time,final boolean is_start,final boolean is_stop, final String authToken, final Response.Listener<String> callback, final Response.ErrorListener errorCall) {
+    public void setLoggedHours(final String target_id, final String date, final String timezone, final String time, final boolean is_start, final boolean is_stop, final String authToken, final Response.Listener<String> callback, final Response.ErrorListener errorCall) {
         String url= Config.BASE_URL + Config.LOGGED_HOURS;
 
         StringRequest request=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -591,7 +591,7 @@ public class VolleyUtils {
                     params.put("is_start",String.valueOf(is_start));
                 if (is_stop)
                     params.put("is_stop",String.valueOf(is_stop));
-
+                params.put("time_zone",timezone);
 
                 return params;
             }

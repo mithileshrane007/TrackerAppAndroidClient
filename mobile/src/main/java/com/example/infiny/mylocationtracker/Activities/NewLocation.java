@@ -331,7 +331,7 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                         String min=sdf1.format(date);
 
 
-                        volleyUtils.setLoggedHours(sessionManager.getId(), sdf.format(date), sdf1.format(date), true, false, sessionManager.getAuthToken(), new Response.Listener<String>() {
+                        volleyUtils.setLoggedHours(sessionManager.getId(), sdf.format(date),TimeZone.getDefault().getID(),sdf1.format(date), true, false, sessionManager.getAuthToken(), new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
                                 try {
@@ -395,18 +395,20 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
 //                                            alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 //                                            alarmMgr.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingI);
 //                                        }
-                                        if (Double.parseDouble(jsonObject.getString("loggedhour")) >= Double.parseDouble(sessionManager.getTrackTimeOut())) {
-                                            fromServer[0] =true;
-                                        }else {
-                                            fromServer[0] =false;
+                                        String logg_hour[];
+                                        if (jsonObject.getString("loggedhour")!=null) {
+                                            logg_hour=jsonObject.getString("loggedhour").split(":");
+                                            if (Double.parseDouble(logg_hour[0])>=Double.parseDouble(sessionManager.getTrackTimeOut()))
+                                                fromServer[0] =true;
+                                            else
+                                                fromServer[0] =false;
                                         }
+//                                        if (Double.parseDouble(jsonObject.getString("loggedhour"))>=Double.parseDouble(sessionManager.getTrackTimeOut()))
+
                                     } else {
 
                                         Toast.makeText(mContext,"Else setLoggedHours",Toast.LENGTH_SHORT).show();
                                     }
-
-
-
 
                                 }catch (Exception e) {
                                     e.printStackTrace();
@@ -523,7 +525,7 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
                         String min=sdf1.format(date);
 
 
-                        volleyUtils.setLoggedHours(sessionManager.getId(), sdf.format(date), sdf1.format(date), false, true, sessionManager.getAuthToken(), new Response.Listener<String>() {
+                        volleyUtils.setLoggedHours(sessionManager.getId(), sdf.format(date),TimeZone.getDefault().getID(), sdf1.format(date), false, true, sessionManager.getAuthToken(), new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
 
@@ -594,10 +596,16 @@ public class NewLocation extends AppCompatActivity implements View.OnClickListen
 //                                            alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 //                                            alarmMgr.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingI);
 //                                        }
-                                        if (Double.parseDouble(jsonObject.getString("loggedhour"))>=Double.parseDouble(sessionManager.getTrackTimeOut()))
-                                            fromServer[0] = true;
-                                        else
-                                            fromServer[0] = false;
+                                        String logg_hour[];
+                                        if (jsonObject.getString("loggedhour")!=null) {
+                                            logg_hour=jsonObject.getString("loggedhour").split(":");
+                                            if (Double.parseDouble(logg_hour[0])>=Double.parseDouble(sessionManager.getTrackTimeOut()))
+                                                fromServer[0] = true;
+                                            else
+                                                fromServer[0] = false;
+                                        }
+//                                        if (Double.parseDouble(jsonObject.getString("loggedhour"))>=Double.parseDouble(sessionManager.getTrackTimeOut()))
+
 
 
                                     } else {
