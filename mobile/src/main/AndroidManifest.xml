@@ -38,7 +38,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDYcOKXl28hW6dGEoJLk6ZmJPxIITBpZxY" />
 
-
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="8f8866e3ea52192f01e0309cc32cac9ffd7d0eea" />
         <receiver android:name=".Listeners.OnBootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -62,6 +64,7 @@
         <activity
             android:name=".Activities.SplashActivity"
             android:screenOrientation="portrait"
+            android:icon="@drawable/app_icon"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

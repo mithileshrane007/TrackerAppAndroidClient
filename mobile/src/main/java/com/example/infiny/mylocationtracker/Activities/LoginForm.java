@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.crashlytics.android.Crashlytics;
 import com.example.infiny.mylocationtracker.Helpers.SessionManager;
 import com.example.infiny.mylocationtracker.Interfaces.NetworkResponse;
 import com.example.infiny.mylocationtracker.NetworkUtils.VolleyUtils;
@@ -95,6 +96,9 @@ public class LoginForm extends AppCompatActivity implements View.OnClickListener
                                 intent.putExtras(bundle);
                                 sessionManager.setId(jsonObject1.getString("tracking_id"));
                                 sessionManager.setLogin(true);
+                                // TODO: Move this to where you establish a user session
+                                logUser();
+
                                 startActivity(intent);
                                 finish();
                             }else {
@@ -123,4 +127,13 @@ public class LoginForm extends AppCompatActivity implements View.OnClickListener
                 break;
         }
     }
+
+    private void logUser() {
+        // TODO: Use the current user's information
+        // You can call any combination of these three methods
+        Crashlytics.setUserIdentifier("12345");
+//        Crashlytics.setUserEmail("user@fabric.io");
+        Crashlytics.setUserName(sessionManager.getId());
+    }
+
 }

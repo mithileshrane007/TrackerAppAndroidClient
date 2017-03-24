@@ -1,5 +1,6 @@
 package com.example.infiny.mylocationtracker;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -13,6 +14,7 @@ import android.support.wearable.view.DismissOverlayView;
 import android.view.View;
 import android.view.WindowInsets;
 import android.widget.FrameLayout;
+import io.fabric.sdk.android.Fabric;
 
 public class MapsActivity extends Activity implements OnMapReadyCallback,
         GoogleMap.OnMapLongClickListener {
@@ -32,6 +34,7 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
 
     public void onCreate(Bundle savedState) {
         super.onCreate(savedState);
+        Fabric.with(this, new Crashlytics());
 
         // Set the layout. It only contains a MapFragment and a DismissOverlay.
         setContentView(R.layout.activity_maps);
